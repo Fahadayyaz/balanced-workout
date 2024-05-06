@@ -1,48 +1,83 @@
-import React, { useState } from "react";
-import { SafeAreaView, View, Text, StatusBar, Button } from "react-native";
+import React from "react";
+import {
+  View,
+  PanResponder,
+  Text,
+  Animated,
+  StyleSheet,
+  Dimensions,
+} from "react-native";
+
+const { width } = Dimensions.get("window");
+const SWIPE_THRESHOLD = 100;
 
 const SwipeButton = () => {
-  const [disableCBButton, setDisableCBButton] = useState(false);
-  const defaultStatusMessage = "Swipe status appears here";
-  const [swipeStatusMessage, setSwipeStatusMessage] =
-    useState(defaultStatusMessage);
+  const pan = React.useRef(new Animated.ValueXY()).current;
 
-  setInterval(() => setSwipeStatusMessage(defaultStatusMessage), 5000);
-
-  const updateSwipeStatusMessage = (message) => setSwipeStatusMessage(message);
-
-  const renderSubHeading = (heading) => <Text>{heading}</Text>;
-
-  let forceResetLastButton = null;
-
-  const CheckoutButton = () => (
-    <View
-      style={{
-        width: 100,
-        height: 30,
-        backgroundColor: "white",
-        borderRadius: 5,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <Text style={{ color: "#ffffff" }}>Checkout</Text>
-    </View>
-  );
+  const panResponder = React.useRef(
+    PanResponder.create({
+      onStartShouldSetPanResponder: () => true,
+      onPanResponderMove: (event, gestureState) => {
+        // Restricting movement to horizontal direction only
+        Animated.event([null, { dx: pan.x }])(event, gestureState);
+      },
+      onPanResponderRelease: (event, gestureState) => {
+        if (gestureState.dx > SWIPE_THRESHOLD) {
+          console.log("Swipe gesture detected! Powering off...");
+          // Implement logic for powering off here
+          // For now, let's just reset the position of the swipe button
+          Animated.spring(pan, {
+            toValue: { x: 0, y: 0 },
+            useNativeDriver: false,
+          }).start();
+        } else {
+          // Snap back to the original position if not swiped enough
+          Animated.spring(pan, {
+            toValue: { x: 0, y: 0 },
+            useNativeDriver: false,
+          }).start();
+        }
+      },
+    })
+  ).current;
 
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <View>
-          <Text>React Native Swipe Button</Text>
-          <Text>{swipeStatusMessage}</Text>
-          {renderSubHeading("Disabled")}
-          {/* Implement your SwipeButton component here */}
-        </View>
-      </SafeAreaView>
-    </>
+    <View style={styles.container}>
+      <Animated.View
+        style={[
+          styles.button,
+          {
+            transform: [{ translateX: pan.x }],
+          },
+        ]}
+        {...panResponder.panHandlers}
+      >
+        <Text style={styles.text}>Swipe this</Text>
+      </Animated.View>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  button: {
+    backgroundColor: "#FFFFFF",
+    width: width - 20,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: "center",
+    alignItems: "center",
+    elevation: 3,
+  },
+  text: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#333",
+  },
+});
 
 export default SwipeButton;
