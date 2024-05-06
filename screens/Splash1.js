@@ -46,7 +46,7 @@ const Splash1 = () => {
             Start your adventure with us! Discover unforgotable destinations and
             hidden gems
           </Text>
-          <CustomSwipeButton />
+          <CustomSwipeButton callback={() => navigation.replace("Splash2")} />
         </View>
       </ImageBackground>
     </View>
