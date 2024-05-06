@@ -1,5 +1,6 @@
+import { Image, StyleSheet, View } from "react-native";
 import React, { useEffect } from "react";
-import { View, StyleSheet, Image } from "react-native";
+
 import { useNavigation } from "@react-navigation/native";
 
 const Splash = () => {
@@ -30,7 +31,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor:"black",
+    backgroundColor: "black",
   },
   image: {
     width: "100%",

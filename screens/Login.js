@@ -1,5 +1,6 @@
+import { StyleSheet, Text, View } from "react-native";
+
 import React from "react";
-import { View, StyleSheet, Text } from "react-native";
 
 const Login = () => {
   return (
@@ -13,7 +14,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    backgroundColor:"lightparrot",
+    backgroundColor: "lightparrot",
   },
   loginHeading: {
     fontSize: 48,

@@ -1,10 +1,9 @@
-import React from "react";
-import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-
 import Login from "./screens/Login";
+import { NavigationContainer } from "@react-navigation/native";
+import React from "react";
 import Splash from "./screens/Splash";
 import Splash1 from "./screens/Splash1";
+import { createStackNavigator } from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
@@ -24,4 +23,3 @@ const App = () => {
 };
 
 export default App;
-

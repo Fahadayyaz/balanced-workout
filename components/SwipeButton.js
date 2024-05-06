@@ -1,12 +1,13 @@
-import React from "react";
 import {
-  View,
-  PanResponder,
-  Text,
   Animated,
-  StyleSheet,
   Dimensions,
+  PanResponder,
+  StyleSheet,
+  Text,
+  View,
 } from "react-native";
+
+import React from "react";
 
 const { width } = Dimensions.get("window");
 const SWIPE_THRESHOLD = 100;

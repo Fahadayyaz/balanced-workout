@@ -1,13 +1,14 @@
-import React from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   ImageBackground,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+
 import CustomSwipeButton from "../components/SwipeButton";
+import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Splash1 = () => {
   const navigation = useNavigation();
