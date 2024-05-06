@@ -7,7 +7,11 @@ const { width: windowWidth } = Dimensions.get("window");
 
 const SWIPE_THRESHOLD = 100;
 
-const SwipeButton = ({ callback }) => {
+const SwipeButton = ({
+  callback = () => {
+    console.log("Swipe callback");
+  },
+}) => {
   const pan = useRef(new Animated.ValueXY()).current;
 
   const panResponder = useRef(
