@@ -9,7 +9,7 @@ const Splash = () => {
   useEffect(() => {
     // Navigate to Splash1.js after 3 seconds
     const timer = setTimeout(() => {
-      navigation.navigate("Splash1");
+      navigation.replace("Splash1");
     }, 3000);
 
     // Clear the timer when component unmounts
