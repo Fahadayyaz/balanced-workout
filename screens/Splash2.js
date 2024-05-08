@@ -20,7 +20,7 @@ const Splash2 = () => {
   return (
     <View style={styles.container}>
       <ImageBackground
-        source={require("../assets/splashAssets/splash1.png")}
+        source={require("../assets/splashAssets/splash2.png")}
         style={{
           width: "100%",
           height: "100%",
@@ -44,13 +44,9 @@ const Splash2 = () => {
           </Text>
           <Text style={styles.subHeading}>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
-            facilis odio dolorem ducimus voluptatem a voluptate eius
-            consequuntur exercitationem non provident, soluta illum dolores
-            accusantium impedit quisquam eveniet est ratione. Voluptate quod
-            quia ut illo, rem voluptatem deserunt voluptatum similique adipisci
-            earum tempore quibusdam animi mollitia, fugiat totam. Fuga, quam?
+            facilis odio dolorem ducimus voluptatem a volu
           </Text>
-          <CustomSwipeButton callback={() => navigation.navigate("Splash2")} />
+          <CustomSwipeButton callback={() => navigation.navigate("Splash3")} />
         </View>
       </ImageBackground>
     </View>
