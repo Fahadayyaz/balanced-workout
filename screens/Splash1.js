@@ -1,49 +1,33 @@
-import {
-  ImageBackground,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
-import CustomSwipeButton from "../components/SwipeButton";
 import React from "react";
+import { ImageBackground, StyleSheet, Text, Pressable, View } from "react-native";
+import CustomSwipeButton from "../components/SwipeButton";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "expo-status-bar";
 
 const Splash1 = () => {
   const navigation = useNavigation();
 
   const handleSkip = () => {
-    navigation.navigate("Login");
+    navigation.navigate("SignIn");
   };
 
   return (
     <View style={styles.container}>
+      <StatusBar style="light" />
       <ImageBackground
         source={require("../assets/splashAssets/splash1.png")}
-        style={{
-          width: "100%",
-          height: "100%",
-        }}
+        style={styles.imageBackground}
       >
-        <TouchableOpacity onPress={handleSkip}>
-          <Text
-            style={{
-              color: "white",
-              marginLeft: "auto",
-              margin: 27,
-            }}
-          >
-            Skip
-          </Text>
-        </TouchableOpacity>
+        <Pressable onPress={handleSkip} style={styles.skipButton}>
+          <Text style={styles.skipText}>Skip</Text>
+        </Pressable>
 
-        <View>
+        <View style={styles.contentContainer}>
           <Text style={styles.heading}>
             EXPLORE THE WORLD’S WONDERS TODAY WITH US
           </Text>
           <Text style={styles.subHeading}>
-            Start your adventure with us! Discover unforgotable destinations and
+            Start your adventure with us! Discover unforgettable destinations and
             hidden gems
           </Text>
           <CustomSwipeButton callback={() => navigation.replace("Splash2")} />
@@ -59,19 +43,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     position: "relative",
   },
+  imageBackground: {
+    width: "100%",
+    height: "100%",
+  },
+  skipButton: {
+    position: "absolute",
+    top: 50,
+    right: 20,
+  },
+  skipText: {
+    color: "white",
+  },
+  contentContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 50,
+  },
   heading: {
     color: "#ffffff",
     fontSize: 28,
-    marginTop: "128%",
     textAlign: "center",
+    marginTop:"150%",
   },
   subHeading: {
     color: "#ffffff",
     fontSize: 14,
     textAlign: "center",
     marginTop: "2%",
-    marginLeft: "10.2%",
-    marginRight: "10.2%",
+    marginHorizontal: 20,
   },
 });
 
