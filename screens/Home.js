@@ -36,7 +36,9 @@ const Home = () => {
           </Text>
           <Text style={{ color: "lightgrey" }}>2024 October 25</Text>
         </View>
-        <View style={styles.progressCircle}></View>
+        <View style={styles.progressCircle}>
+          
+        </View>
       </View>
     </View>
   );
@@ -98,6 +100,9 @@ const styles = StyleSheet.create({
   activityText: {
     paddingTop: "10%",
     paddingLeft: "5%",
+  },
+  progressCircle:{
+
   },
 });
 
