@@ -14,6 +14,7 @@ import Age from "./screens/Age";
 import Weight from "./screens/Weight";
 import Height from "./screens/Height";
 import Goal from "./screens/Goal";
+import TabNav from "./components/TabNav";
 import PhysicalActivity from "./screens/PhysicalActivity";
 import ProfilePicture from "./screens/ProfilePicture";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -41,7 +42,7 @@ const App = () => {
         <Stack.Screen name="Weight" component={Weight} />
         <Stack.Screen name="Height" component={Height} />
         <Stack.Screen name="Goal" component={Goal} />
-
+        <Stack.Screen name="TabNav" component={TabNav} />
         <Stack.Screen name="PhysicalActivity" component={PhysicalActivity} />
         <Stack.Screen name="ProfilePicture" component={ProfilePicture} />
       </Stack.Navigator>
