@@ -59,33 +59,12 @@ const Home = () => {
           />
         </View>
       </View>
-      <View
-        style={{
-          backgroundColor: "transparent",
-          marginTop: 10,
-          flexDirection: "row",
-        }}
-      >
-        <View
-          style={{
-            backgroundColor: "#1E1E1E",
-            height: 166,
-            width: 150,
-            flex: 1,
-            margin: 5,
-            borderRadius: 20,
-            marginLeft: 35,
-          }}
-        >
+      <View style={styles.activeWorkoutAndChallengesWrap}>
+        {/* Active Workout card starts here */}
+        <View style={styles.activeWorkout}>
           <Image
             source={require("../assets/homeAssets/navArrow.png")}
-            style={{
-              width: 40,
-              height: 40,
-              position: "absolute",
-              right: 0,
-              margin: 10,
-            }}
+            style={styles.navArrow}
           />
           <Image
             source={require("../assets/homeAssets/activeWorkout.png")}
@@ -97,40 +76,13 @@ const Home = () => {
               margin: 50,
             }}
           />
-          <Text
-            style={{
-              color: "#fff",
-              position: "absolute",
-              bottom: 0,
-              marginLeft: 45,
-              marginBottom: 20,
-            }}
-          >
-            Challenges
-          </Text>
+          <Text style={styles.cardsText}>Active Workout</Text>
         </View>
-        <View
-          style={{
-            backgroundColor: "#1E1E1E",
-            height: 166,
-            width: 150,
-            flex: 1,
-            margin: 5,
-            borderRadius: 20,
-            marginRight: 35,
-            borderWidth: 1,
-            borderColor: "#BDFE30",
-          }}
-        >
+        {/* challenges card starts here */}
+        <View style={styles.challenges}>
           <Image
             source={require("../assets/homeAssets/navArrow.png")}
-            style={{
-              width: 40,
-              height: 40,
-              position: "absolute",
-              right: 0,
-              margin: 10,
-            }}
+            style={styles.navArrow}
           />
           <Image
             source={require("../assets/homeAssets/challenges.png")}
@@ -142,19 +94,21 @@ const Home = () => {
               margin: 50,
             }}
           />
-          <Text
-            style={{
-              color: "#fff",
-              position: "absolute",
-              bottom: 0,
-              marginLeft: 45,
-              marginBottom: 20,
-            }}
-          >
-            Challenges
-          </Text>
+          <Text style={styles.cardsText}>Challenges</Text>
         </View>
       </View>
+      <Pressable
+        style={{
+          width: "90%",
+          height: 50,
+          backgroundColor: "#BDFE30",
+          borderRadius: 74,
+          marginTop: "5%",
+          justifyContent: "center",
+        }}
+      >
+        <Text style={{ color: "black", alignSelf: "center" }}>Create Feed</Text>
+      </Pressable>
     </View>
   );
 };
@@ -206,8 +160,8 @@ const styles = StyleSheet.create({
   },
   activityWrap: {
     marginTop: "5%",
-    width: "85%",
-    height: "15%",
+    width: 373,
+    height: 120,
     flexDirection: "row",
     backgroundColor: "#1E1E1E",
     borderRadius: 24,
@@ -222,36 +176,46 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   activeWorkoutAndChallengesWrap: {
-    backgroundColor: "transparent",
-    marginTop: 10,
+    marginTop: "5%",
+    width: 373,
+    height: 166,
     flexDirection: "row",
+    backgroundColor: "transparent",
+    borderRadius: 24,
+    justifyContent: "space-between",
   },
   activeWorkout: {
     backgroundColor: "#1E1E1E",
     height: 166,
-    width: 150,
+    width: 180,
     flex: 1,
-    margin: 5,
-    borderRadius: 24,
-    marginLeft: 35,
+    marginRight: 5,
+    borderRadius: 20,
   },
   challenges: {
     backgroundColor: "#1E1E1E",
     height: 166,
     width: 150,
     flex: 1,
-    margin: 5,
-    borderRadius: 24,
-    marginRight: 35,
+    // margin: 2,
+    borderRadius: 20,
+    marginLeft: 5,
     borderWidth: 1,
     borderColor: "#BDFE30",
   },
   navArrow: {
-    width: 38,
-    height: 38,
-    marginTop: 5,
-    marginLeft: "70%",
-    marginBottom: 5,
+    width: 40,
+    height: 40,
+    position: "absolute",
+    right: 0,
+    margin: 10,
+  },
+  cardsText: {
+    color: "#fff",
+    position: "absolute",
+    bottom: 0,
+    marginLeft: 45,
+    marginBottom: 20,
   },
 });
 
