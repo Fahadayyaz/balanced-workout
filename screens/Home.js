@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
+import TabNav from "../components/TabNav";
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -190,6 +191,9 @@ const Home = () => {
           </ImageBackground>
         </View>
       </ScrollView>
+      <View style={styles.tabNav}>
+        <TabNav />
+      </View>
     </View>
   );
 };
@@ -307,6 +311,10 @@ const styles = StyleSheet.create({
     bottom: 0,
     marginLeft: 45,
     marginBottom: 20,
+  },
+  tabNav: {
+    margin: 10,
+    justifyContent: "space-between",
   },
 });
 
