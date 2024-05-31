@@ -8,9 +8,12 @@ import {
   Pressable,
   ImageBackground,
   ScrollView,
+  Dimensions,
 } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
 import TabNav from "../components/TabNav";
+
+const { width } = Dimensions.get("window");
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -22,7 +25,7 @@ const Home = () => {
         <View style={styles.profilePicBox}>
           <Image
             source={require("../assets/homeAssets/profilePic.png")}
-            style={{ width: 50, height: 50, marginLeft: "40%" }}
+            style={{ width: 50, height: 50 }}
           />
         </View>
         <View style={styles.profileNameWrap}>
@@ -33,13 +36,13 @@ const Home = () => {
         <View style={styles.profileSearchBox}>
           <Image
             source={require("../assets/homeAssets/searchIcon.png")}
-            style={{ width: 50, height: 50 }}
+            style={{ width: 30, height: 30 }}
           />
         </View>
         <View style={styles.profileNotificationBox}>
           <Image
             source={require("../assets/homeAssets/notificationIcon.png")}
-            style={{ width: 50, height: 50 }}
+            style={{ width: 30, height: 30 }}
           />
         </View>
       </View>
@@ -110,34 +113,15 @@ const Home = () => {
               <Text style={styles.cardsText}>Challenges</Text>
             </View>
           </View>
-          <Pressable
-            style={{
-              width: "100%",
-              height: 50,
-              backgroundColor: "#BDFE30",
-              borderRadius: 74,
-              marginTop: "5%",
-              justifyContent: "center",
-              alignSelf: "center",
-            }}
-          >
-            <Text
-              style={{
-                color: "black",
-                alignSelf: "center",
-                fontWeight: "bold",
-                fontSize: 16,
-              }}
-            >
-              Create Feed
-            </Text>
+          <Pressable style={styles.createFeedButton}>
+            <Text style={styles.createFeedButtonText}>Create Feed</Text>
           </Pressable>
           <Text style={{ color: "#D4D4D4", fontSize: 22, marginTop: 10 }}>
             Recent Challenges
           </Text>
           <ImageBackground
             source={require("../assets/homeAssets/weightLifting.png")}
-            style={{ marginTop: 10, height: 195 }}
+            style={styles.imageBackground}
           >
             <View style={{ marginLeft: 23, marginTop: 63 }}>
               <Text style={{ color: "#BDFE30", fontSize: 12 }}>
@@ -146,16 +130,7 @@ const Home = () => {
               <Text style={{ color: "#fff", fontSize: 18, marginTop: 10 }}>
                 Simply Chest Workout
               </Text>
-              <Pressable
-                style={{
-                  backgroundColor: "#BDFE30",
-                  width: 104,
-                  height: 35,
-                  justifyContent: "center",
-                  borderRadius: 40,
-                  marginTop: 15,
-                }}
-              >
+              <Pressable style={styles.startNowButton}>
                 <Text style={{ fontSize: 14, alignSelf: "center" }}>
                   Start Now
                 </Text>
@@ -164,7 +139,7 @@ const Home = () => {
           </ImageBackground>
           <ImageBackground
             source={require("../assets/homeAssets/weightLifting.png")}
-            style={{ marginTop: 10, height: 195 }}
+            style={styles.imageBackground}
           >
             <View style={{ marginLeft: 23, marginTop: 63 }}>
               <Text style={{ color: "#BDFE30", fontSize: 12 }}>
@@ -173,16 +148,25 @@ const Home = () => {
               <Text style={{ color: "#fff", fontSize: 18, marginTop: 10 }}>
                 Simply Chest Workout
               </Text>
-              <Pressable
-                style={{
-                  backgroundColor: "#BDFE30",
-                  width: 104,
-                  height: 35,
-                  justifyContent: "center",
-                  borderRadius: 40,
-                  marginTop: 15,
-                }}
-              >
+              <Pressable style={styles.startNowButton}>
+                <Text style={{ fontSize: 14, alignSelf: "center" }}>
+                  Start Now
+                </Text>
+              </Pressable>
+            </View>
+          </ImageBackground>
+          <ImageBackground
+            source={require("../assets/homeAssets/weightLifting.png")}
+            style={styles.imageBackground}
+          >
+            <View style={{ marginLeft: 23, marginTop: 63 }}>
+              <Text style={{ color: "#BDFE30", fontSize: 12 }}>
+                7x4 Challenge
+              </Text>
+              <Text style={{ color: "#fff", fontSize: 18, marginTop: 10 }}>
+                Simply Chest Workout
+              </Text>
+              <Pressable style={styles.startNowButton}>
                 <Text style={{ fontSize: 14, alignSelf: "center" }}>
                   Start Now
                 </Text>
@@ -217,6 +201,7 @@ const styles = StyleSheet.create({
     borderBottomRightRadius: 80,
     backgroundColor: "#404040",
     justifyContent: "center",
+    alignItems: "center",
   },
   profileNameWrap: {
     flexDirection: "row",
@@ -244,16 +229,15 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   scrollViewContent: {
-    height: "100%",
+    flex: 1,
   },
   content: {
-    width: 373,
+    width: width * 0.9,
     alignSelf: "center",
-    // backgroundColor: "brown",
   },
   activityWrap: {
     marginTop: "5%",
-    width: 373,
+    width: "100%",
     height: 120,
     flexDirection: "row",
     backgroundColor: "#1E1E1E",
@@ -271,7 +255,7 @@ const styles = StyleSheet.create({
   },
   activeWorkoutAndChallengesWrap: {
     marginTop: "5%",
-    width: 373,
+    width: "100%",
     height: 166,
     flexDirection: "row",
     backgroundColor: "transparent",
@@ -282,35 +266,59 @@ const styles = StyleSheet.create({
   activeWorkout: {
     backgroundColor: "#1E1E1E",
     height: 166,
-    width: 180,
-    flex: 1,
-    marginRight: 5,
+    width: "48%",
     borderRadius: 20,
+    padding: 10,
   },
   challenges: {
     backgroundColor: "#1E1E1E",
     height: 166,
-    width: 150,
-    flex: 1,
-    // margin: 2,
+    width: "48%",
     borderRadius: 20,
-    marginLeft: 5,
     borderWidth: 1,
     borderColor: "#BDFE30",
+    padding: 10,
   },
   navArrow: {
     width: 40,
     height: 40,
     position: "absolute",
-    right: 0,
-    margin: 10,
+    right: 10,
+    top: 10,
   },
   cardsText: {
     color: "#fff",
     position: "absolute",
-    bottom: 0,
-    marginLeft: 45,
-    marginBottom: 20,
+    bottom: 10,
+    left: 10,
+  },
+  createFeedButton: {
+    width: "100%",
+    height: 50,
+    backgroundColor: "#BDFE30",
+    borderRadius: 74,
+    marginTop: "5%",
+    justifyContent: "center",
+    alignSelf: "center",
+  },
+  createFeedButtonText: {
+    color: "black",
+    alignSelf: "center",
+    fontWeight: "bold",
+    fontSize: 16,
+  },
+  imageBackground: {
+    marginTop: 10,
+    height: 195,
+    justifyContent: "center",
+  },
+  startNowButton: {
+    backgroundColor: "#BDFE30",
+    width: 104,
+    height: 35,
+    justifyContent: "center",
+    borderRadius: 40,
+    marginTop: 15,
   },
   tabNav: {
     margin: 10,

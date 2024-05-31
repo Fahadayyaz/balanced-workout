@@ -14,7 +14,12 @@ import Gender from "./screens/Gender";
 import Age from "./screens/Age";
 import Weight from "./screens/Weight";
 import Height from "./screens/Height";
+import Workout from "./screens/Workout";
+import Profile from "./screens/Profile";
+import Explore from "./screens/Explore";
+import Settings from "./screens/Settings";
 import Goal from "./screens/Goal";
+import ActiveWorkout from "./screens/ActiveWorkout";
 import TabNav from "./components/TabNav";
 import PhysicalActivity from "./screens/PhysicalActivity";
 import ProfilePicture from "./screens/ProfilePicture";
@@ -42,7 +47,12 @@ const StackNavigator = () => {
         <Stack.Screen name="Age" component={Age} />
         <Stack.Screen name="Weight" component={Weight} />
         <Stack.Screen name="Height" component={Height} />
+        <Stack.Screen name="Workout" component={Workout} />
+        <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Explore" component={Explore} />
+        <Stack.Screen name="Settings" component={Settings} />
         <Stack.Screen name="Goal" component={Goal} />
+        <Stack.Screen name="ActiveWorkout" component={ActiveWorkout} />
         <Stack.Screen name="TabNav" component={TabNav} />
         <Stack.Screen name="PhysicalActivity" component={PhysicalActivity} />
         <Stack.Screen name="ProfilePicture" component={ProfilePicture} />
