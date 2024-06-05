@@ -2,32 +2,14 @@ import React, { useState } from "react";
 import { View, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const TabNav = () => {
-  const [pressedIcon, setPressedIcon] = useState(null);
+const TabNav = ({ activeScreen }) => {
+  const [pressedIcon, setPressedIcon] = useState(activeScreen);
   const navigation = useNavigation();
 
   const handlePress = (icon) => {
     setPressedIcon(icon);
     // Navigate to respective screens based on the icon
-    switch (icon) {
-      case "home":
-        navigation.navigate("Home");
-        break;
-      case "workout":
-        navigation.navigate("Workout");
-        break;
-      case "profile":
-        navigation.navigate("Profile");
-        break;
-      case "explore":
-        navigation.navigate("Explore");
-        break;
-      case "settings":
-        navigation.navigate("Settings");
-        break;
-      default:
-        break;
-    }
+    navigation.navigate(icon);
   };
 
   const getIconStyle = (icon) => ({
@@ -41,48 +23,48 @@ const TabNav = () => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
-        onPress={() => handlePress("home")}
-        style={[styles.iconContainer, getIconStyle("home")]}
+        onPress={() => handlePress("Home")}
+        style={[styles.iconContainer, getIconStyle("Home")]}
       >
         <Image
           source={require("../assets/TabNavAssets/homeIcon.png")}
-          style={getImageStyle("home")}
+          style={getImageStyle("Home")}
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => handlePress("workout")}
-        style={[styles.iconContainer, getIconStyle("workout")]}
+        onPress={() => handlePress("Workout")}
+        style={[styles.iconContainer, getIconStyle("Workout")]}
       >
         <Image
           source={require("../assets/TabNavAssets/workoutIcon.png")}
-          style={getImageStyle("workout")}
+          style={getImageStyle("Workout")}
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => handlePress("profile")}
-        style={[styles.iconContainer, getIconStyle("profile")]}
+        onPress={() => handlePress("Profile")}
+        style={[styles.iconContainer, getIconStyle("Profile")]}
       >
         <Image
           source={require("../assets/TabNavAssets/profileIcon.png")}
-          style={getImageStyle("profile")}
+          style={getImageStyle("Profile")}
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => handlePress("explore")}
-        style={[styles.iconContainer, getIconStyle("explore")]}
+        onPress={() => handlePress("Explore")}
+        style={[styles.iconContainer, getIconStyle("Explore")]}
       >
         <Image
           source={require("../assets/TabNavAssets/exploreIcon.png")}
-          style={getImageStyle("explore")}
+          style={getImageStyle("Explore")}
         />
       </TouchableOpacity>
       <TouchableOpacity
-        onPress={() => handlePress("settings")}
-        style={[styles.iconContainer, getIconStyle("settings")]}
+        onPress={() => handlePress("Settings")}
+        style={[styles.iconContainer, getIconStyle("Settings")]}
       >
         <Image
           source={require("../assets/TabNavAssets/settingsIcon.png")}
-          style={getImageStyle("settings")}
+          style={getImageStyle("Settings")}
         />
       </TouchableOpacity>
     </View>
