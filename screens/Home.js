@@ -69,49 +69,49 @@ const Home = () => {
                 inActiveStrokeWidth={30}
                 activeStrokeColor={"#BDFE30"}
                 activeStrokeWidth={30}
-                duration={2000}
+                duration={1000}
                 showProgressValue={false}
                 onAnimationComplete={() => setValue(50)}
               />
             </View>
           </View>
           <View style={styles.activeWorkoutAndChallengesWrap}>
-            {/* Active Workout card starts here */}
-            <View style={styles.activeWorkout}>
-              <Image
-                source={require("../assets/homeAssets/navArrow.png")}
-                style={styles.navArrow}
-              />
-              <Image
-                source={require("../assets/homeAssets/activeWorkout.png")}
-                style={{
-                  width: 82,
-                  height: 63,
-                  position: "absolute",
-                  bottom: 0,
-                  margin: 50,
-                }}
-              />
-              <Text style={styles.cardsText}>Active Workout</Text>
-            </View>
-            {/* challenges card starts here */}
-            <View style={styles.challenges}>
-              <Image
-                source={require("../assets/homeAssets/navArrow.png")}
-                style={styles.navArrow}
-              />
-              <Image
-                source={require("../assets/homeAssets/challenges.png")}
-                style={{
-                  width: 82,
-                  height: 63,
-                  position: "absolute",
-                  bottom: 0,
-                  margin: 50,
-                }}
-              />
-              <Text style={styles.cardsText}>Challenges</Text>
-            </View>
+            <Pressable style={styles.activeWorkout}>
+              <View>
+                <Image
+                  source={require("../assets/homeAssets/navArrow.png")}
+                  style={styles.navArrow}
+                />
+                <Image
+                  source={require("../assets/homeAssets/activeWorkout.png")}
+                  style={{
+                    width: 82,
+                    height: 63,
+                    bottom: 0,
+                    margin: 40,
+                  }}
+                />
+                <Text style={styles.cardsText}>Active Workout</Text>
+              </View>
+            </Pressable>
+            <Pressable style={styles.challenges}>
+              <View>
+                <Image
+                  source={require("../assets/homeAssets/navArrow.png")}
+                  style={styles.navArrow}
+                />
+                <Image
+                  source={require("../assets/homeAssets/challenges.png")}
+                  style={{
+                    width: 82,
+                    height: 63,
+                    bottom: 0,
+                    margin: 40,
+                  }}
+                />
+                <Text style={styles.cardsText}>Challenges</Text>
+              </View>
+            </Pressable>
           </View>
           <Pressable style={styles.createFeedButton}>
             <Text style={styles.createFeedButtonText}>Create Feed</Text>
@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   profileSearchBox: {
-    width: 40, // Reduced the width to create space for the notification icon
+    width: 40,
     height: 50,
     marginRight: 10,
     marginLeft: "20%",
@@ -268,6 +268,8 @@ const styles = StyleSheet.create({
     height: 166,
     width: "48%",
     borderRadius: 20,
+    borderWidth: 1,
+    borderColor: "#1E1E1E",
     padding: 10,
   },
   challenges: {
@@ -276,21 +278,17 @@ const styles = StyleSheet.create({
     width: "48%",
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: "#BDFE30",
+    borderColor: "#1E1E1E",
     padding: 10,
   },
   navArrow: {
     width: 40,
     height: 40,
-    position: "absolute",
-    right: 10,
-    top: 10,
   },
   cardsText: {
     color: "#fff",
-    position: "absolute",
-    bottom: 10,
-    left: 10,
+    marginLeft: "23%",
+    bottom: 20,
   },
   createFeedButton: {
     width: "100%",
