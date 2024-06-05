@@ -25,7 +25,7 @@ const Home = () => {
         <View style={styles.profilePicBox}>
           <Image
             source={require("../assets/homeAssets/profilePic.png")}
-            style={{ width: 50, height: 50 }}
+            style={{ width: 45, height: 45 }}
           />
         </View>
         <View style={styles.profileNameWrap}>
@@ -36,13 +36,13 @@ const Home = () => {
         <View style={styles.profileSearchBox}>
           <Image
             source={require("../assets/homeAssets/searchIcon.png")}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 45, height: 45 }}
           />
         </View>
         <View style={styles.profileNotificationBox}>
           <Image
             source={require("../assets/homeAssets/notificationIcon.png")}
-            style={{ width: 30, height: 30 }}
+            style={{ width: 45, height: 45 }}
           />
         </View>
       </View>
@@ -87,8 +87,8 @@ const Home = () => {
                   style={{
                     width: 82,
                     height: 63,
-                    bottom: 0,
-                    margin: 40,
+                    marginLeft: 40,
+                    marginTop: 10,
                   }}
                 />
                 <Text style={styles.cardsText}>Active Workout</Text>
@@ -105,8 +105,8 @@ const Home = () => {
                   style={{
                     width: 82,
                     height: 63,
-                    bottom: 0,
-                    margin: 40,
+                    marginLeft: 40,
+                    marginTop: 10,
                   }}
                 />
                 <Text style={styles.cardsText}>Challenges</Text>
@@ -192,11 +192,11 @@ const styles = StyleSheet.create({
     marginTop: "11%",
     height: 60,
     alignItems: "center",
-    alignSelf: "center",
   },
   profilePicBox: {
     width: "25%",
-    height: 60,
+    height: 55,
+    paddingLeft: "10%",
     borderTopRightRadius: 80,
     borderBottomRightRadius: 80,
     backgroundColor: "#404040",
@@ -209,15 +209,16 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   profileSearchBox: {
-    width: 40,
+    width: 30,
     height: 50,
-    marginRight: 10,
+    marginRight: 30,
+    justifyContent: "center",
     marginLeft: "20%",
   },
   profileNotificationBox: {
     width: 50,
     height: 50,
-    marginLeft: "3%",
+    justifyContent: "center",
   },
   text1: {
     color: "#fff",
@@ -258,7 +259,6 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 166,
     flexDirection: "row",
-    backgroundColor: "transparent",
     borderRadius: 24,
     justifyContent: "space-between",
     alignSelf: "center",
@@ -282,13 +282,14 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   navArrow: {
-    width: 40,
-    height: 40,
+    width: 30,
+    height: 30,
+    marginLeft: "80%",
   },
   cardsText: {
     color: "#fff",
     marginLeft: "23%",
-    bottom: 20,
+    marginTop: 15,
   },
   createFeedButton: {
     width: "100%",
