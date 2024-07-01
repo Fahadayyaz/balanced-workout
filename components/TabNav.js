@@ -42,7 +42,11 @@ const TabNav = ({ activeScreen }) => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => handlePress("Profile")}
-        style={[styles.iconContainer, getIconStyle("Profile")]}
+        style={[
+          styles.iconContainer,
+          getIconStyle("Profile"),
+          styles.profileIconContainer, // Additional style for Profile icon
+        ]}
       >
         <Image
           source={require("../assets/TabNavAssets/profileIcon.png")}
@@ -91,6 +95,10 @@ const styles = StyleSheet.create({
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
+  },
+  profileIconContainer: {
+    marginBottom: 40,
+    backgroundColor: "#1E1E1E", // Adjust this value to move the icon upward
   },
 });
 

@@ -11,7 +11,6 @@ import {
   Dimensions,
 } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
-import TabNav from "../components/TabNav";
 
 const { width } = Dimensions.get("window");
 
@@ -175,9 +174,6 @@ const Home = () => {
           </ImageBackground>
         </View>
       </ScrollView>
-      <View style={styles.tabNav}>
-        <TabNav />
-      </View>
     </View>
   );
 };
@@ -264,7 +260,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   activeWorkout: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "rgba(30, 30, 30, 0.7)",
     height: 166,
     width: "48%",
     borderRadius: 20,
@@ -273,7 +269,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   challenges: {
-    backgroundColor: "#1E1E1E",
+    backgroundColor: "rgba(30, 30, 30, 0.7)",
     height: 166,
     width: "48%",
     borderRadius: 20,
@@ -310,6 +306,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     height: 195,
     justifyContent: "center",
+    overflow: "hidden",
+    borderRadius: 20,
   },
   startNowButton: {
     backgroundColor: "#BDFE30",
@@ -318,10 +316,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     borderRadius: 40,
     marginTop: 15,
-  },
-  tabNav: {
-    margin: 10,
-    justifyContent: "space-between",
   },
 });
 

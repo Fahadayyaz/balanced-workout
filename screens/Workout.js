@@ -8,36 +8,39 @@ import {
   TouchableOpacity,
   Image,
 } from "react-native";
-import TabNav from "../components/TabNav";
+import { useNavigation } from "@react-navigation/native"; // Import useNavigation
 import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+
+const cards = [
+  {
+    name: "Progression",
+    image: require("../assets/workoutAssets/progression.png"),
+  },
+  {
+    name: "Courses / Library",
+    image: require("../assets/workoutAssets/coursesLibrary.png"),
+  },
+  {
+    name: "Weekly Plans",
+    image: require("../assets/workoutAssets/weeklyPlans.png"),
+  },
+  {
+    name: "Cardio Exercise",
+    image: require("../assets/workoutAssets/cardioExercise.png"),
+  },
+  {
+    name: "Stretches",
+    image: require("../assets/workoutAssets/stretches.png"),
+  },
+  {
+    name: "Challenges",
+    image: require("../assets/workoutAssets/challenges.png"),
+  },
+];
 
 const Workout = () => {
-  const cards = [
-    {
-      name: "Cardio",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-    {
-      name: "Strength",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-    {
-      name: "Flexibility",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-    {
-      name: "Balance",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-    {
-      name: "Endurance",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-    {
-      name: "HIIT",
-      image: require("../assets/workoutAssets/cardioExercise.png"),
-    },
-  ];
+  const navigation = useNavigation();
 
   return (
     <View style={styles.container}>
@@ -48,7 +51,10 @@ const Workout = () => {
       >
         <View style={styles.contentWrap}>
           <View style={styles.header}>
-            <TouchableOpacity style={styles.backButton}>
+            <TouchableOpacity
+              style={styles.backButton}
+              onPress={() => navigation.goBack()} // Go back to the previous screen
+            >
               <Ionicons name="arrow-back" size={24} color="#fff" />
             </TouchableOpacity>
             <View style={styles.screenHeading}>
@@ -57,15 +63,21 @@ const Workout = () => {
           </View>
           <View style={styles.cardContainer}>
             {cards.map((card, index) => (
-              <View key={index} style={styles.card}>
-                <Image source={card.image} style={styles.cardImage} />
+              <TouchableOpacity key={index} style={styles.card}>
+                <Image source={card.image} style={[styles.cardImage]} />
                 <Text style={styles.cardText}>{card.name}</Text>
-              </View>
+                <View style={styles.circle}>
+                  <MaterialCommunityIcons
+                    name="arrow-top-right"
+                    size={14}
+                    color="#fff"
+                  />
+                </View>
+              </TouchableOpacity>
             ))}
           </View>
         </View>
       </ImageBackground>
-      <TabNav activeTab="workout" />
     </View>
   );
 };
@@ -92,12 +104,12 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
     width: "100%",
-    paddingTop: 40,
+    paddingTop: 50,
   },
   backButton: {
     width: 50,
     height: 50,
-    backgroundColor: "#3A3A3C",
+    backgroundColor: "rgba(40, 40, 40, 0.7)",
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 25,
@@ -108,7 +120,7 @@ const styles = StyleSheet.create({
   },
   screenHeadingText: {
     color: "#fff",
-    fontSize: 32,
+    fontSize: 24,
   },
   cardContainer: {
     flex: 1,
@@ -121,22 +133,34 @@ const styles = StyleSheet.create({
   card: {
     width: "45%",
     height: 150,
-    backgroundColor: "rgba(255, 255, 255, 0.8)",
+    backgroundColor: "rgba(30, 30, 30, 0.7)", // Semi-transparent background
     justifyContent: "center",
     alignItems: "center",
-    borderRadius: 10,
+    borderRadius: 24,
     marginVertical: 10,
     padding: 10,
+    position: "relative",
   },
   cardImage: {
-    width: "100%",
-    height: "70%",
+    width: 70,
+    height: 70,
     resizeMode: "contain",
   },
   cardText: {
-    fontSize: 18,
-    color: "#000",
+    fontSize: 12,
+    color: "#fff",
     marginTop: 10,
+  },
+  circle: {
+    width: 30,
+    height: 30,
+    borderRadius: 15,
+    backgroundColor: "rgba(45, 45, 45, 0.7)",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    bottom: 110,
+    right: 10,
   },
 });
 

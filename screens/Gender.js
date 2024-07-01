@@ -34,7 +34,7 @@ const Gender = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/signInSignUpAssets/editProfileBg.png")}
         style={styles.imageBackground}
@@ -60,7 +60,14 @@ const Gender = () => {
               size={32}
               color={gender === "male" ? "black" : "#fff"}
             />
-            <Text style={[styles.buttonText, { color: gender === "male" ? "black" : "#fff" }]}>Male</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: gender === "male" ? "black" : "#fff" },
+              ]}
+            >
+              Male
+            </Text>
           </View>
         </Pressable>
 
@@ -80,7 +87,14 @@ const Gender = () => {
               size={32}
               color={gender === "female" ? "black" : "#fff"}
             />
-            <Text style={[styles.buttonText, { color: gender === "female" ? "black" : "#fff" }]}>Female</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: gender === "female" ? "black" : "#fff" },
+              ]}
+            >
+              Female
+            </Text>
           </View>
         </Pressable>
 
@@ -100,7 +114,14 @@ const Gender = () => {
               size={24}
               color={isBackPressed ? "black" : "#fff"}
             />
-            <Text style={[styles.buttonText, { color: isBackPressed ? "black" : "#fff" }]}>Back</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: isBackPressed ? "black" : "#fff" },
+              ]}
+            >
+              Back
+            </Text>
           </Pressable>
           <Pressable
             onPress={handleNextPress}
@@ -112,7 +133,14 @@ const Gender = () => {
               },
             ]}
           >
-            <Text style={[styles.buttonText, { color: isNextPressed ? "black" : "#fff" }]}>Next</Text>
+            <Text
+              style={[
+                styles.buttonText,
+                { color: isNextPressed ? "black" : "#fff" },
+              ]}
+            >
+              Next
+            </Text>
             <Ionicons
               name="chevron-forward"
               size={24}
@@ -124,7 +152,6 @@ const Gender = () => {
     </View>
   );
 };
-
 
 const styles = StyleSheet.create({
   container: {
@@ -162,25 +189,24 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     alignSelf: "center",
-    marginTop: "20%",
   },
   navButtonsContainer: {
-    flexDirection: "row",
+    position: "absolute",
+    bottom: 80,
     justifyContent: "space-between",
-    marginHorizontal: "1%",
+    flexDirection: "row",
   },
   navButton: {
     flexDirection: "row",
-    padding: "3%",
     borderRadius: 50,
-    width: "30%",
+    width: 140,
+    height: 59,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "50%",
   },
   buttonText: {
     color: "#fff",
-    marginLeft: 5,
+    paddingLeft: 5,
   },
 });
 

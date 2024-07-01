@@ -51,7 +51,6 @@ const SignUp = () => {
                   style={{ position: "absolute", top: 13, left: 15 }}
                 />
                 <TextInput
-
                   style={[
                     styles.textInput,
                     nameFocused && { borderColor: "#BDFE30" },
@@ -87,12 +86,14 @@ const SignUp = () => {
             </View>
             <View style={styles.passwordSection}>
               <Text style={{ color: "#fff", marginBottom: 10 }}>Password</Text>
-              <View style={{ position: "relative" }}>
+              <View style={{ position: "relative", justifyContent: "center" }}>
                 <EvilIcons
                   name="lock"
-                  size={32}
+                  size={42}
                   color={passwordFocused ? "#fff" : "#91929F"}
-                  style={{ position: "absolute", top: 13, left: 15 }}
+                  style={{
+                    position: "absolute",
+                  }}
                 />
                 <TextInput
                   style={[
@@ -115,9 +116,9 @@ const SignUp = () => {
               <View style={{ position: "relative" }}>
                 <EvilIcons
                   name="lock"
-                  size={32}
+                  size={42}
                   color={confirmPasswordFocused ? "#fff" : "#91929F"}
-                  style={{ position: "absolute", top: 13, left: 15 }}
+                  style={{ position: "absolute", top: 13, left: 10 }}
                 />
                 <TextInput
                   style={[
@@ -191,7 +192,7 @@ const SignUp = () => {
                 marginTop: 5,
               }}
             >
-              <Text style={{ color: "#91929F", fontSize: 16 }}>
+              <Text style={{ color: "#fff", fontSize: 16 }}>
                 Already have an account?
               </Text>
               <Pressable
@@ -269,7 +270,7 @@ const styles = StyleSheet.create({
   textLoginOption: {
     fontSize: 16,
     marginHorizontal: 10,
-    color: "#91929F",
+    color: "#fff",
   },
   line: {
     flex: 1,
