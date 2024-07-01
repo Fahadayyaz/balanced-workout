@@ -44,59 +44,61 @@ const Gender = () => {
           To give you a better experience we need to know your gender
         </Text>
 
-        <Pressable
-          onPress={() => handlePress("male")}
-          style={({ pressed }) => [
-            styles.genderMaleButton,
-            {
-              backgroundColor:
-                pressed || gender === "male" ? "#BDFE30" : "#91929F",
-            },
-          ]}
-        >
-          <View>
-            <MaterialIcons
-              name="male"
-              size={32}
-              color={gender === "male" ? "black" : "#fff"}
-            />
-            <Text
-              style={[
-                styles.buttonText,
-                { color: gender === "male" ? "black" : "#fff" },
-              ]}
-            >
-              Male
-            </Text>
-          </View>
-        </Pressable>
+        <View style={styles.genderContainer}>
+          <Pressable
+            onPress={() => handlePress("male")}
+            style={({ pressed }) => [
+              styles.genderButton,
+              {
+                backgroundColor:
+                  pressed || gender === "male" ? "#BDFE30" : "#91929F",
+              },
+            ]}
+          >
+            <View style={styles.iconContainer}>
+              <MaterialIcons
+                name="male"
+                size={32}
+                color={gender === "male" ? "black" : "#fff"}
+              />
+              <Text
+                style={[
+                  styles.buttonText,
+                  { color: gender === "male" ? "black" : "#fff" },
+                ]}
+              >
+                Male
+              </Text>
+            </View>
+          </Pressable>
 
-        <Pressable
-          onPress={() => handlePress("female")}
-          style={({ pressed }) => [
-            styles.genderFemaleButton,
-            {
-              backgroundColor:
-                pressed || gender === "female" ? "#BDFE30" : "#91929F",
-            },
-          ]}
-        >
-          <View>
-            <MaterialIcons
-              name="female"
-              size={32}
-              color={gender === "female" ? "black" : "#fff"}
-            />
-            <Text
-              style={[
-                styles.buttonText,
-                { color: gender === "female" ? "black" : "#fff" },
-              ]}
-            >
-              Female
-            </Text>
-          </View>
-        </Pressable>
+          <Pressable
+            onPress={() => handlePress("female")}
+            style={({ pressed }) => [
+              styles.genderButton,
+              {
+                backgroundColor:
+                  pressed || gender === "female" ? "#BDFE30" : "#91929F",
+              },
+            ]}
+          >
+            <View style={styles.iconContainer}>
+              <MaterialIcons
+                name="female"
+                size={32}
+                color={gender === "female" ? "black" : "#fff"}
+              />
+              <Text
+                style={[
+                  styles.buttonText,
+                  { color: gender === "female" ? "black" : "#fff" },
+                ]}
+              >
+                Female
+              </Text>
+            </View>
+          </Pressable>
+        </View>
 
         <View style={styles.navButtonsContainer}>
           <Pressable
@@ -127,6 +129,7 @@ const Gender = () => {
             onPress={handleNextPress}
             style={({ pressed }) => [
               styles.navButton,
+              styles.nextButton, // Add specific style for Next button
               {
                 backgroundColor:
                   pressed || isNextPressed ? "#BDFE30" : "#91929F",
@@ -173,28 +176,29 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: "2%",
   },
-  genderMaleButton: {
-    width: "35%",
-    aspectRatio: 1,
-    borderRadius: 100,
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
+  genderContainer: {
     marginTop: "40%",
+    alignItems: "center", // Align the buttons in the center
   },
-  genderFemaleButton: {
+  genderButton: {
     width: "35%",
     aspectRatio: 1,
     borderRadius: 100,
     justifyContent: "center",
     alignItems: "center",
-    alignSelf: "center",
+    marginBottom: 20, // Add margin bottom to create space between the buttons
+  },
+  iconContainer: {
+    justifyContent: "center",
+    alignItems: "center",
   },
   navButtonsContainer: {
     position: "absolute",
     bottom: 80,
-    justifyContent: "space-between",
     flexDirection: "row",
+    justifyContent: "space-between",
+    width: "100%",
+    paddingHorizontal: 20, // Add horizontal padding to create space
   },
   navButton: {
     flexDirection: "row",
@@ -203,10 +207,15 @@ const styles = StyleSheet.create({
     height: 59,
     justifyContent: "center",
     alignItems: "center",
+    marginHorizontal: 10, // Add horizontal margin to each button
+  },
+  nextButton: {
+    alignSelf: "flex-end", // Align Next button to the right side
   },
   buttonText: {
     color: "#fff",
-    paddingLeft: 5,
+    paddingTop: 5, // Add padding top to separate text from icon
+    textAlign: "center",
   },
 });
 

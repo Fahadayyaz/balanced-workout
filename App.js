@@ -46,7 +46,7 @@ const HomeTabs = () => {
         tabBarStyle: {
           backgroundColor: "#3A3A3C",
           borderTopWidth: 1,
-          borderTopColor: "#EFEFF4",
+          borderTopColor: "transparent",
           position: "absolute",
           bottom: 20,
           elevation: 0,
