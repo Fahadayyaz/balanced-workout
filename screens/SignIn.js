@@ -132,23 +132,15 @@ const SignIn = () => {
               <Text style={styles.textLoginOption}>or login with</Text>
               <View style={styles.line} />
             </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignSelf: "center",
-                marginTop: "10%",
-              }}
-            >
-              <Pressable style={{ marginRight: "10%" }}>
+            <View style={styles.socialButtonsContainer}>
+              <Pressable style={styles.appleButton}>
                 <Image
                   source={require("../assets/signInSignUpAssets/appleIcon.png")}
-                  style={{ width: 51, height: 51 }}
                 />
               </Pressable>
-              <Pressable>
+              <Pressable style={styles.socialButton}>
                 <Image
                   source={require("../assets/signInSignUpAssets/googleIcon.png")}
-                  style={{ width: 51, height: 51, objectFit: "contain" }}
                 />
               </Pressable>
             </View>
@@ -253,6 +245,29 @@ const styles = StyleSheet.create({
     paddingLeft: 40,
     color: "#fff",
     backgroundColor: "rgba(255, 255, 255, 0.1)",
+  },
+  socialButtonsContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  appleButton: {
+    marginHorizontal: 20,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#3A3A3C",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  socialButton: {
+    marginHorizontal: 20,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 

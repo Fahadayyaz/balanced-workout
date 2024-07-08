@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
   },
   bgImage: {
     flex: 1,
-    paddingHorizontal: "8%",
   },
   profilePicHeading: {
     fontSize: 32,
@@ -65,14 +64,14 @@ const styles = StyleSheet.create({
   profilePicDescription: {
     color: "#D4D4D4",
     textAlign: "center",
-    width: "70%",
+    width: 280,
     alignSelf: "center",
   },
   uploadIconContainer: {
     alignItems: "center",
   },
   uploadIcon: {
-    marginTop: "60%",
+    marginTop: "45%",
     width: "40%",
     height: undefined,
     aspectRatio: 1,

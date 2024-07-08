@@ -19,7 +19,7 @@ const Gender = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar barStyle="auto" />
       <ImageBackground
         source={require("../assets/signInSignUpAssets/editProfileBg.png")}
         style={styles.imageBackground}
@@ -84,7 +84,6 @@ const Gender = () => {
             </View>
           </Pressable>
         </View>
-
         <BackNextButtons nextPath="Age" />
       </ImageBackground>
     </View>
@@ -97,22 +96,22 @@ const styles = StyleSheet.create({
   },
   imageBackground: {
     flex: 1,
-    paddingHorizontal: "10%",
-    paddingVertical: "10%",
   },
   heading: {
     fontSize: 32,
     color: "white",
     textAlign: "center",
-    marginTop: "20%",
+    marginTop: "25%",
+    fontWeight: "bold",
   },
   description: {
     color: "#D4D4D4",
     textAlign: "center",
-    marginTop: "2%",
+    width: 280,
+    alignSelf: "center",
   },
   genderContainer: {
-    marginTop: "40%",
+    marginTop: "20%",
     alignItems: "center",
   },
   genderButton: {

@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     right: 20,
   },
   skipText: {
-    color: "white",
+    color: "#fff",
   },
   contentContainer: {
     flex: 1,

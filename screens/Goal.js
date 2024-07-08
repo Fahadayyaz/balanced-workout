@@ -38,7 +38,7 @@ const Goal = () => {
               </View>
             )}
             onValueChange={(data, selectedIndex) => {}}
-            wrapperHeight={450}
+            wrapperHeight={430}
             itemHeight={80}
             highlightColor="#BDFE30"
             highlightBorderWidth={4}
@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
   },
   bgImage: {
     flex: 1,
-    paddingHorizontal: 30,
   },
   itemContainer: {
     justifyContent: "center",
@@ -68,13 +67,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "white",
     fontWeight: "bold",
-  },
-  pickerContainer: {
-    width: "70%",
-    height: "50%",
-    marginTop: "40%",
-    flexWrap: "nowrap",
-    alignSelf: "center",
   },
   heading: {
     fontSize: 32,
@@ -87,6 +79,13 @@ const styles = StyleSheet.create({
     color: "#D4D4D4",
     textAlign: "center",
     width: 280,
+    alignSelf: "center",
+  },
+  pickerContainer: {
+    width: "50%",
+    height: "50%",
+    marginTop: "20%",
+    flexWrap: "center",
     alignSelf: "center",
   },
 });

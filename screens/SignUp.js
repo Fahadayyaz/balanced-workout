@@ -31,7 +31,10 @@ const SignUp = () => {
         style={styles.backgroundImage}
       />
       <StatusBar style="auto" />
-      <ScrollView contentContainerStyle={styles.contentContainer}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.contentContainer}
+      >
         <Image source={require("../assets/signInSignUpAssets/appIcon.png")} />
 
         <Text style={styles.heading}>Registration</Text>
@@ -79,9 +82,9 @@ const SignUp = () => {
           <View style={styles.inputWrapper}>
             <EvilIcons
               name="lock"
-              size={24}
+              size={38}
               color={passwordFocused ? "#fff" : "#91929F"}
-              style={styles.icon}
+              style={{ position: "absolute", left: 5 }}
             />
             <TextInput
               style={[styles.textInput, passwordFocused && styles.inputFocused]}
@@ -99,9 +102,9 @@ const SignUp = () => {
           <View style={styles.inputWrapper}>
             <EvilIcons
               name="lock"
-              size={24}
+              size={38}
               color={confirmPasswordFocused ? "#fff" : "#91929F"}
-              style={styles.icon}
+              style={{ position: "absolute", left: 5 }}
             />
             <TextInput
               style={[
@@ -214,6 +217,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 50,
     color: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
   },
   inputFocused: {
     borderColor: "#BDFE30",
@@ -231,9 +235,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  circleChecked: {
-    backgroundColor: "#BDFE30",
-  },
+  circleChecked: {},
   tick: {
     fontSize: 18,
     color: "#fff",
@@ -289,7 +291,7 @@ const styles = StyleSheet.create({
     height: 50,
     width: 50,
     borderRadius: 25,
-    backgroundColor: "#000",
+    backgroundColor: "#3A3A3C",
     justifyContent: "center",
     alignItems: "center",
   },

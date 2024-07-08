@@ -82,11 +82,12 @@ const styles = StyleSheet.create({
     bottom: 60,
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "100%",
+    right: 0,
+    left: 0,
     paddingHorizontal: 20,
   },
   buttonWrapper: {
-    width: "45%",
+    width: "40%",
   },
   navButton: {
     flexDirection: "row",

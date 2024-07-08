@@ -33,7 +33,7 @@ const PhysicalActivity = () => {
               </View>
             )}
             onValueChange={(data, selectedIndex) => {}}
-            wrapperHeight={450}
+            wrapperHeight={430}
             itemHeight={80}
             highlightColor="#BDFE30"
             highlightBorderWidth={4}
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
   },
   bgImage: {
     flex: 1,
-    paddingHorizontal: 30,
   },
   heading: {
     fontSize: 32,
@@ -68,10 +67,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   pickerContainer: {
-    width: "70%",
+    width: "50%",
     height: "50%",
-    marginTop: "20%",
-    flexWrap: "nowrap",
+    marginTop: "10%",
+    alignItems: "center",
     alignSelf: "center",
   },
   itemContainer: {
