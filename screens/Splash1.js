@@ -1,5 +1,11 @@
 import React from "react";
-import { ImageBackground, StyleSheet, Text, Pressable, View } from "react-native";
+import {
+  ImageBackground,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+} from "react-native";
 import CustomSwipeButton from "../components/SwipeButton";
 import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
@@ -13,7 +19,7 @@ const Splash1 = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/splashAssets/splash1.png")}
         style={styles.imageBackground}
@@ -27,8 +33,8 @@ const Splash1 = () => {
             EXPLORE THE WORLD’S WONDERS TODAY WITH US
           </Text>
           <Text style={styles.subHeading}>
-            Start your adventure with us! Discover unforgettable destinations and
-            hidden gems
+            Start your adventure with us! Discover unforgettable destinations
+            and hidden gems
           </Text>
           <CustomSwipeButton callback={() => navigation.replace("Splash2")} />
         </View>
@@ -65,7 +71,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 28,
     textAlign: "center",
-    marginTop:"150%",
+    marginTop: "150%",
   },
   subHeading: {
     color: "#ffffff",

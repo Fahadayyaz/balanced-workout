@@ -34,7 +34,7 @@ const OTP = () => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="auto" />
       <ImageBackground
         source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
         style={styles.container}

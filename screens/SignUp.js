@@ -31,7 +31,7 @@ const SignUp = () => {
         source={require("../assets/signInSignUpAssets/signInBackground.png")}
         style={styles.container}
       >
-        <StatusBar style="light" />
+        <StatusBar style="auto" />
         <ScrollView>
           <Image
             source={require("../assets/signInSignUpAssets/appIcon.png")}

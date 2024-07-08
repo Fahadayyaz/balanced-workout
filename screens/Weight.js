@@ -1,6 +1,12 @@
 import { StatusBar } from "expo-status-bar";
 import React, { useState, useCallback, useMemo } from "react";
-import { View, Text, StyleSheet, ImageBackground, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+} from "react-native";
 import ScrollPicker from "react-native-wheel-scrollview-picker";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -22,20 +28,29 @@ const Weight = () => {
     navigation.navigate("Height");
   }, [navigation]);
 
-  const buttonStyle = useCallback((pressed) => ({
-    backgroundColor: pressed ? "#BDFE30" : "#91929F",
-    ...styles.button,
-  }), []);
+  const buttonStyle = useCallback(
+    (pressed) => ({
+      backgroundColor: pressed ? "#BDFE30" : "#91929F",
+      ...styles.button,
+    }),
+    []
+  );
 
-  const buttonText = useCallback((pressed) => ({
-    color: pressed ? "black" : "#fff",
-  }), []);
+  const buttonText = useCallback(
+    (pressed) => ({
+      color: pressed ? "black" : "#fff",
+    }),
+    []
+  );
 
-  const weightData = useMemo(() => Array.from({ length: 200 }, (_, i) => `${i + 1}`), []);
+  const weightData = useMemo(
+    () => Array.from({ length: 200 }, (_, i) => `${i + 1}`),
+    []
+  );
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/signInSignUpAssets/editProfileBg.png")}
         style={styles.bgImage}

@@ -14,7 +14,7 @@ import { AntDesign } from "@expo/vector-icons"; // Make sure you have expo-vecto
 const ForgotPassword = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
         style={styles.container}

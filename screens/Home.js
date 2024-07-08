@@ -19,7 +19,7 @@ const Home = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <View style={styles.profileWrap}>
         <View style={styles.profilePicBox}>
           <Image

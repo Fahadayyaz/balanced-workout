@@ -19,7 +19,7 @@ const Splash3 = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/splashAssets/splash3.png")}
         style={styles.imageBackground}

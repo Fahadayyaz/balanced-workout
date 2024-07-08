@@ -26,7 +26,7 @@ const ChangePassword = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
         style={styles.container}

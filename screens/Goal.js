@@ -57,7 +57,7 @@ const Goal = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
       <ImageBackground
         source={require("../assets/signInSignUpAssets/editProfileBg.png")}
         style={styles.bgImage}

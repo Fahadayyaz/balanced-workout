@@ -44,7 +44,7 @@ const Workout = () => {
 
   return (
     <View style={styles.container}>
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="auto" />
       <ImageBackground
         source={require("../assets/workoutAssets/background.png")}
         style={styles.bgImage}
