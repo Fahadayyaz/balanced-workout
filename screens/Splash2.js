@@ -56,16 +56,17 @@ const styles = StyleSheet.create({
   skipButton: {
     position: "absolute",
     top: 50,
-    right: 27,
+    right: 20,
   },
   skipText: {
-    color: "white",
+    color: "#fff",
   },
   contentContainer: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: "130%",
+    marginBottom: 50,
+    marginTop: "150%",
   },
   heading: {
     color: "#ffffff",
@@ -76,6 +77,7 @@ const styles = StyleSheet.create({
     color: "#ffffff",
     fontSize: 14,
     textAlign: "center",
+    marginTop: "2%",
     marginHorizontal: 20,
   },
 });

@@ -1,34 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useCallback, useMemo } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ImageBackground,
-  Pressable,
-  Image,
-} from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import React, { useState, useCallback } from "react";
+import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
 import * as ImagePicker from "expo-image-picker";
+import BackNextButtons from "../components/BackNextButtons"; // Assuming this is the correct path to BackNextButtons
 
 const ProfilePicture = () => {
-  const navigation = useNavigation();
-  const [isBackPressed, setIsBackPressed] = useState(false);
-  const [isNextPressed, setIsNextPressed] = useState(false);
   const [image, setImage] = useState(null);
-
-  const handleBackPress = useCallback(() => {
-    setIsBackPressed(true);
-    setIsNextPressed(false);
-    navigation.goBack();
-  }, [navigation]);
-
-  const handleNextPress = useCallback(() => {
-    setIsNextPressed(true);
-    setIsBackPressed(false);
-    navigation.navigate("SignIn");
-  }, [navigation]);
 
   const pickImage = useCallback(async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -43,22 +20,6 @@ const ProfilePicture = () => {
     }
   }, []);
 
-  const backButtonStyle = useMemo(
-    () => ({
-      backgroundColor: isBackPressed ? "#BDFE30" : "#91929F",
-      ...styles.button,
-    }),
-    [isBackPressed]
-  );
-
-  const nextButtonStyle = useMemo(
-    () => ({
-      backgroundColor: isNextPressed ? "#BDFE30" : "#91929F",
-      ...styles.button,
-    }),
-    [isNextPressed]
-  );
-
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -70,8 +31,7 @@ const ProfilePicture = () => {
         <Text style={styles.profilePicDescription}>
           Please add your profile picture
         </Text>
-
-        <Pressable onPress={pickImage} style={styles.uploadIconContainer}>
+        <View style={styles.uploadIconContainer}>
           {image ? (
             <Image source={{ uri: image }} style={styles.uploadedImage} />
           ) : (
@@ -80,40 +40,8 @@ const ProfilePicture = () => {
               style={styles.uploadIcon}
             />
           )}
-        </Pressable>
-
-        <View style={styles.buttonContainer}>
-          <Pressable onPress={handleBackPress} style={backButtonStyle}>
-            <Ionicons
-              name="chevron-back-outline"
-              size={24}
-              color={isBackPressed ? "black" : "#fff"}
-            />
-            <Text
-              style={[
-                styles.buttonText,
-                { color: isBackPressed ? "black" : "#fff" },
-              ]}
-            >
-              Back
-            </Text>
-          </Pressable>
-          <Pressable onPress={handleNextPress} style={nextButtonStyle}>
-            <Text
-              style={[
-                styles.buttonText,
-                { color: isNextPressed ? "black" : "#fff" },
-              ]}
-            >
-              Next
-            </Text>
-            <Ionicons
-              name="chevron-forward"
-              size={24}
-              color={isNextPressed ? "black" : "#fff"}
-            />
-          </Pressable>
         </View>
+        <BackNextButtons nextPath="SignIn" />
       </ImageBackground>
     </View>
   );
@@ -154,24 +82,6 @@ const styles = StyleSheet.create({
     height: undefined,
     aspectRatio: 1,
     borderRadius: 75,
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    top: "auto",
-    marginTop: "80%",
-  },
-  button: {
-    flexDirection: "row",
-    padding: "2.5%",
-    borderRadius: 50,
-    width: "35%",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "#fff",
-    marginLeft: "5%",
   },
 });
 

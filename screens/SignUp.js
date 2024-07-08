@@ -3,7 +3,6 @@ import {
   StyleSheet,
   Text,
   Image,
-  ImageBackground,
   View,
   Pressable,
   TextInput,
@@ -26,266 +25,292 @@ const SignUp = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
-      <ImageBackground
+    <View style={styles.mainContainer}>
+      <Image
         source={require("../assets/signInSignUpAssets/signInBackground.png")}
-        style={styles.container}
-      >
-        <StatusBar style="auto" />
-        <ScrollView>
-          <Image
-            source={require("../assets/signInSignUpAssets/appIcon.png")}
-            style={styles.appIcon}
-          />
+        style={styles.backgroundImage}
+      />
+      <StatusBar style="auto" />
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        <Image source={require("../assets/signInSignUpAssets/appIcon.png")} />
 
-          <Text style={styles.loginHeading2}>Registration</Text>
+        <Text style={styles.heading}>Registration</Text>
 
-          <View>
-            <View style={styles.nameEmailSection}>
-              <Text style={{ color: "#fff", marginBottom: 10 }}>Name</Text>
-              <View style={{ position: "relative" }}>
-                <AntDesign
-                  name="user"
-                  size={24}
-                  color={nameFocused ? "#fff" : "#91929F"}
-                  style={{ position: "absolute", top: 13, left: 15 }}
-                />
-                <TextInput
-                  style={[
-                    styles.textInput,
-                    nameFocused && { borderColor: "#BDFE30" },
-                  ]}
-                  placeholder="Hammad Habib"
-                  placeholderTextColor="#91929F"
-                  onFocus={() => setNameFocused(true)}
-                  onBlur={() => setNameFocused(false)}
-                />
-              </View>
-            </View>
-
-            <View style={styles.nameEmailSection}>
-              <Text style={{ color: "#fff", marginBottom: 10 }}>Email</Text>
-              <View style={{ position: "relative" }}>
-                <Feather
-                  name="mail"
-                  size={24}
-                  color={emailFocused ? "#fff" : "#91929F"}
-                  style={{ position: "absolute", top: 13, left: 15 }}
-                />
-                <TextInput
-                  style={[
-                    styles.textInput,
-                    emailFocused && { borderColor: "#BDFE30" },
-                  ]}
-                  placeholder="helloBalanced@gmail.com"
-                  placeholderTextColor="#91929F"
-                  onFocus={() => setEmailFocused(true)}
-                  onBlur={() => setEmailFocused(false)}
-                />
-              </View>
-            </View>
-            <View style={styles.passwordSection}>
-              <Text style={{ color: "#fff", marginBottom: 10 }}>Password</Text>
-              <View style={{ position: "relative", justifyContent: "center" }}>
-                <EvilIcons
-                  name="lock"
-                  size={42}
-                  color={passwordFocused ? "#fff" : "#91929F"}
-                  style={{
-                    position: "absolute",
-                  }}
-                />
-                <TextInput
-                  style={[
-                    styles.textInput,
-                    passwordFocused && { borderColor: "#BDFE30" },
-                  ]}
-                  placeholder="Enter Password"
-                  placeholderTextColor="#91929F"
-                  secureTextEntry={true}
-                  onFocus={() => setPasswordFocused(true)}
-                  onBlur={() => setPasswordFocused(false)}
-                />
-              </View>
-            </View>
-
-            <View style={styles.passwordSection}>
-              <Text style={{ color: "#fff", marginBottom: 10 }}>
-                Confirm Password
-              </Text>
-              <View style={{ position: "relative" }}>
-                <EvilIcons
-                  name="lock"
-                  size={42}
-                  color={confirmPasswordFocused ? "#fff" : "#91929F"}
-                  style={{ position: "absolute", top: 13, left: 10 }}
-                />
-                <TextInput
-                  style={[
-                    styles.textInput,
-                    confirmPasswordFocused && { borderColor: "#BDFE30" },
-                  ]}
-                  placeholder="Confirm Password"
-                  placeholderTextColor="#91929F"
-                  secureTextEntry={true}
-                  onFocus={() => setConfirmPasswordFocused(true)}
-                  onBlur={() => setConfirmPasswordFocused(false)}
-                />
-              </View>
-            </View>
-
-            <View style={{ flexDirection: "row" }}>
-              <Pressable
-                onPress={toggleRemember}
-                style={({ pressed }) => [
-                  styles.circle,
-                  isRemembered && styles.circleClicked,
-                  pressed && { backgroundColor: "" },
-                ]}
-              >
-                {isRemembered && <Text style={styles.tick}>✓</Text>}
-              </Pressable>
-              <Text style={{ color: "#91929F", marginTop: 15, marginLeft: 10 }}>
-                Remember me
-              </Text>
-            </View>
-            <View>
-              <Pressable
-                onPress={() => navigation.navigate("Gender")}
-                style={({ pressed }) => [
-                  styles.loginButton,
-                  pressed && { backgroundColor: "#91929F" },
-                ]}
-              >
-                <Text style={styles.text}>Sign Up</Text>
-              </Pressable>
-            </View>
-            <View style={styles.loginOption}>
-              <View style={styles.line} />
-              <Text style={styles.textLoginOption}>or Sign Up with</Text>
-              <View style={styles.line} />
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignSelf: "center",
-                marginTop: 10,
-              }}
-            >
-              <Pressable style={{ marginRight: "10%" }}>
-                <Image
-                  source={require("../assets/signInSignUpAssets/appleIcon.png")}
-                  style={{ width: 51, height: 51 }}
-                />
-              </Pressable>
-              <Pressable>
-                <Image
-                  source={require("../assets/signInSignUpAssets/googleIcon.png")}
-                  style={{ width: 51, height: 51, objectFit: "contain" }}
-                />
-              </Pressable>
-            </View>
-            <View
-              style={{
-                flexDirection: "row",
-                alignSelf: "center",
-                marginTop: 5,
-              }}
-            >
-              <Text style={{ color: "#fff", fontSize: 16 }}>
-                Already have an account?
-              </Text>
-              <Pressable
-                onPress={() => navigation.navigate("SignIn")}
-                style={{ marginLeft: 5 }}
-              >
-                <Text style={{ color: "#BDFE30", fontSize: 16 }}>Sign In</Text>
-              </Pressable>
-            </View>
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Name</Text>
+          <View style={styles.inputWrapper}>
+            <AntDesign
+              name="user"
+              size={24}
+              color={nameFocused ? "#fff" : "#91929F"}
+              style={styles.icon}
+            />
+            <TextInput
+              style={[styles.textInput, nameFocused && styles.inputFocused]}
+              placeholder="Hammad Habib"
+              placeholderTextColor="#91929F"
+              onFocus={() => setNameFocused(true)}
+              onBlur={() => setNameFocused(false)}
+            />
           </View>
-        </ScrollView>
-      </ImageBackground>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Email</Text>
+          <View style={styles.inputWrapper}>
+            <Feather
+              name="mail"
+              size={24}
+              color={emailFocused ? "#fff" : "#91929F"}
+              style={styles.icon}
+            />
+            <TextInput
+              style={[styles.textInput, emailFocused && styles.inputFocused]}
+              placeholder="helloBalanced@gmail.com"
+              placeholderTextColor="#91929F"
+              onFocus={() => setEmailFocused(true)}
+              onBlur={() => setEmailFocused(false)}
+            />
+          </View>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Password</Text>
+          <View style={styles.inputWrapper}>
+            <EvilIcons
+              name="lock"
+              size={24}
+              color={passwordFocused ? "#fff" : "#91929F"}
+              style={styles.icon}
+            />
+            <TextInput
+              style={[styles.textInput, passwordFocused && styles.inputFocused]}
+              placeholder="Enter Password"
+              placeholderTextColor="#91929F"
+              secureTextEntry={true}
+              onFocus={() => setPasswordFocused(true)}
+              onBlur={() => setPasswordFocused(false)}
+            />
+          </View>
+        </View>
+
+        <View style={styles.inputContainer}>
+          <Text style={styles.label}>Confirm Password</Text>
+          <View style={styles.inputWrapper}>
+            <EvilIcons
+              name="lock"
+              size={24}
+              color={confirmPasswordFocused ? "#fff" : "#91929F"}
+              style={styles.icon}
+            />
+            <TextInput
+              style={[
+                styles.textInput,
+                confirmPasswordFocused && styles.inputFocused,
+              ]}
+              placeholder="Confirm Password"
+              placeholderTextColor="#91929F"
+              secureTextEntry={true}
+              onFocus={() => setConfirmPasswordFocused(true)}
+              onBlur={() => setConfirmPasswordFocused(false)}
+            />
+          </View>
+        </View>
+
+        <View style={styles.rememberMeContainer}>
+          <Pressable
+            onPress={toggleRemember}
+            style={[styles.circle, isRemembered && styles.circleChecked]}
+          >
+            {isRemembered && <Text style={styles.tick}>✓</Text>}
+          </Pressable>
+          <Text style={styles.rememberMeText}>Remember me</Text>
+        </View>
+
+        <Pressable
+          onPress={() => navigation.navigate("Gender")}
+          style={({ pressed }) => [
+            styles.signUpButton,
+            pressed && { backgroundColor: "#91929F" },
+          ]}
+        >
+          <Text style={styles.signUpButtonText}>Sign Up</Text>
+        </Pressable>
+
+        <View style={styles.divider}>
+          <View style={styles.line} />
+          <Text style={styles.dividerText}>or Sign Up with</Text>
+          <View style={styles.line} />
+        </View>
+
+        <View style={styles.socialButtonsContainer}>
+          <Pressable style={styles.appleButton}>
+            <Image
+              source={require("../assets/signInSignUpAssets/appleIcon.png")}
+            />
+          </Pressable>
+          <Pressable style={styles.socialButton}>
+            <Image
+              source={require("../assets/signInSignUpAssets/googleIcon.png")}
+            />
+          </Pressable>
+        </View>
+
+        <View style={styles.signInContainer}>
+          <Text style={styles.signInText}>Already have an account?</Text>
+          <Pressable onPress={() => navigation.navigate("SignIn")}>
+            <Text style={styles.signInLink}>Sign In</Text>
+          </Pressable>
+        </View>
+      </ScrollView>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
+  mainContainer: {
     flex: 1,
-    paddingHorizontal: 30,
-    paddingVertical: 80,
+    backgroundColor: "#000",
   },
-  loginHeading2: {
+  backgroundImage: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: "cover",
+  },
+  contentContainer: {
+    paddingHorizontal: 30,
+    paddingVertical: 50,
+  },
+  appLogo: {
+    width: 80,
+    height: 80,
+    marginBottom: 20,
+  },
+  heading: {
     fontSize: 30,
     color: "#BDFE30",
     fontWeight: "bold",
+    marginBottom: 30,
   },
-  appIcon: {
-    width: 48,
-    height: 40,
-    objectFit: "contain",
+  inputContainer: {
+    width: "100%",
     marginBottom: 20,
   },
-  passwordSection: {
-    marginTop: 10,
+  label: {
+    color: "#fff",
+    marginBottom: 10,
   },
-  nameEmailSection: {
-    marginTop: 10,
+  inputWrapper: {
+    position: "relative",
+    justifyContent: "center",
+  },
+  icon: {
+    position: "absolute",
+    paddingLeft: 15,
+  },
+  textInput: {
+    height: 50,
+    borderRadius: 30,
+    borderColor: "gray",
+    borderWidth: 1,
+    paddingLeft: 50,
+    color: "#fff",
+  },
+  inputFocused: {
+    borderColor: "#BDFE30",
+  },
+  rememberMeContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
   },
   circle: {
-    marginTop: 10,
     width: 30,
     height: 30,
-    borderRadius: 50,
+    borderRadius: 15,
     backgroundColor: "#303030",
     justifyContent: "center",
     alignItems: "center",
   },
-  circleClicked: {
-    backgroundColor: "#303030",
+  circleChecked: {
+    backgroundColor: "#BDFE30",
   },
   tick: {
     fontSize: 18,
     color: "#fff",
   },
-  loginButton: {
-    alignItems: "center",
-    backgroundColor: "#BDFE30",
-    padding: 10,
-    margin: 10,
-    marginTop: 10,
-    borderRadius: 30,
+  rememberMeText: {
+    color: "#91929F",
+    marginLeft: 10,
   },
-  text: {
+  signUpButton: {
+    backgroundColor: "#BDFE30",
+    paddingVertical: 15,
+    paddingHorizontal: 50,
+    borderRadius: 30,
+    marginBottom: 30,
+    alignItems: "center",
+  },
+  signUpButtonText: {
     fontSize: 16,
     fontWeight: "bold",
+    color: "#000",
   },
-  loginOption: {
+  divider: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    marginVertical: 10,
-    marginTop: 10,
-  },
-  textLoginOption: {
-    fontSize: 16,
-    marginHorizontal: 10,
-    color: "#fff",
+    marginBottom: 20,
   },
   line: {
     flex: 1,
     height: 1,
-    marginHorizontal: 10,
     backgroundColor: "#91929F",
   },
-  textInput: {
-    height: 50,
-    paddingLeft: 50,
-    borderRadius: 30,
-    borderColor: "gray",
-    borderWidth: 1,
-    padding: 10,
+  dividerText: {
+    fontSize: 16,
     color: "#fff",
+    marginHorizontal: 10,
+  },
+  socialButtonsContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  socialButton: {
+    marginHorizontal: 20,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#FFFFFF",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  appleButton: {
+    marginHorizontal: 20,
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+    backgroundColor: "#000",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  socialIcon: {
+    width: 24,
+    height: 24,
+  },
+  signInContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 20,
+  },
+  signInText: {
+    color: "#fff",
+    fontSize: 16,
+  },
+  signInLink: {
+    color: "#BDFE30",
+    fontSize: 16,
+    marginLeft: 5,
   },
 });
 

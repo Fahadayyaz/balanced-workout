@@ -38,7 +38,7 @@ const SignIn = () => {
           <Text style={styles.loginHeading1}>Welcome to</Text>
           <Text style={styles.loginHeading2}>Balanced Workout</Text>
 
-          <View style={{}}>
+          <View>
             <View style={styles.emailSection}>
               <Text style={{ color: "#fff", marginBottom: 10 }}>Email</Text>
               <View style={{ position: "relative", justifyContent: "center" }}>
@@ -74,7 +74,10 @@ const SignIn = () => {
               <TextInput
                 style={[
                   styles.textInput,
-                  passwordFocused && { borderColor: "#BDFE30" },
+                  passwordFocused && {
+                    borderColor: "#BDFE30",
+                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                  },
                 ]}
                 placeholder="Enter Password"
                 placeholderTextColor="#91929F"
@@ -249,6 +252,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     paddingLeft: 40,
     color: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
   },
 });
 

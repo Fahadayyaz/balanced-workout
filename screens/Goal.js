@@ -1,48 +1,10 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useCallback, useMemo } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ImageBackground,
-  Pressable,
-} from "react-native";
+import React, { useMemo } from "react";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import ScrollPicker from "react-native-wheel-scrollview-picker";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import BackNextButtons from "../components/BackNextButtons";
 
 const Goal = () => {
-  const navigation = useNavigation();
-  const [isBackPressed, setIsBackPressed] = useState(false);
-  const [isNextPressed, setIsNextPressed] = useState(false);
-
-  const handleBackPress = useCallback(() => {
-    setIsBackPressed(true);
-    setIsNextPressed(false);
-    navigation.goBack();
-  }, [navigation]);
-
-  const handleNextPress = useCallback(() => {
-    setIsNextPressed(true);
-    setIsBackPressed(false);
-    navigation.navigate("PhysicalActivity");
-  }, [navigation]);
-
-  const buttonStyle = useCallback(
-    (pressed) => ({
-      backgroundColor: pressed ? "#BDFE30" : "#91929F",
-      ...styles.button,
-    }),
-    []
-  );
-
-  const buttonText = useCallback(
-    (pressed) => ({
-      color: pressed ? "black" : "#fff",
-    }),
-    []
-  );
-
   const weightData = useMemo(
     () => [
       "Gain Weight",
@@ -83,34 +45,7 @@ const Goal = () => {
             wrapperBackground="transparent"
           />
         </View>
-        <View style={styles.buttonContainer}>
-          <Pressable
-            onPress={handleBackPress}
-            style={({ pressed }) => buttonStyle(pressed)}
-          >
-            <Ionicons
-              name="chevron-back-outline"
-              size={24}
-              color={buttonText(isBackPressed).color}
-            />
-            <Text style={[styles.buttonText, buttonText(isBackPressed)]}>
-              Back
-            </Text>
-          </Pressable>
-          <Pressable
-            onPress={handleNextPress}
-            style={({ pressed }) => buttonStyle(pressed)}
-          >
-            <Text style={[styles.buttonText, buttonText(isNextPressed)]}>
-              Next
-            </Text>
-            <Ionicons
-              name="chevron-forward"
-              size={24}
-              color={buttonText(isNextPressed).color}
-            />
-          </Pressable>
-        </View>
+        <BackNextButtons nextPath="PhysicalActivity" />
       </ImageBackground>
     </View>
   );
@@ -153,23 +88,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
     width: 280,
     alignSelf: "center",
-  },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: "10%",
-  },
-  button: {
-    flexDirection: "row",
-    padding: 10,
-    borderRadius: 50,
-    width: 120,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "#fff",
-    marginLeft: 5,
   },
 });
 

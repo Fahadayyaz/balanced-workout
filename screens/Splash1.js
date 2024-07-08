@@ -66,12 +66,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 50,
+    marginTop: "150%",
   },
   heading: {
     color: "#ffffff",
     fontSize: 28,
     textAlign: "center",
-    marginTop: "150%",
   },
   subHeading: {
     color: "#ffffff",
