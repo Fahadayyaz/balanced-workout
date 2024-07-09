@@ -30,7 +30,10 @@ const SignIn = () => {
         style={styles.container}
       >
         <StatusBar style="auto" />
-        <ScrollView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          contentContainerStyle={styles.contentContainer}
+        >
           <Image
             source={require("../assets/signInSignUpAssets/appIcon.png")}
             style={styles.appIcon}
@@ -171,6 +174,8 @@ const SignIn = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  contentContainer: {
     paddingHorizontal: 30,
     paddingVertical: 80,
   },

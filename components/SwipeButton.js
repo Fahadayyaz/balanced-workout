@@ -4,8 +4,9 @@ import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
 const { width: windowWidth } = Dimensions.get("window");
-
+const BUTTON_WIDTH = 50;
 const SWIPE_THRESHOLD = 100;
+const MAX_X = windowWidth * 0.9 - BUTTON_WIDTH - 10; // Adjusted for padding and margins
 
 const SwipeButton = ({
   callback = () => {
@@ -18,14 +19,16 @@ const SwipeButton = ({
     PanResponder.create({
       onMoveShouldSetPanResponder: () => true,
       onPanResponderMove: (_, gestureState) => {
-        pan.setValue({ x: gestureState.dx, y: 0 });
+        // Restrict movement within bounds
+        let newX = Math.max(0, Math.min(MAX_X, gestureState.dx));
+        pan.setValue({ x: newX, y: 0 });
       },
       onPanResponderRelease: (_, gestureState) => {
         if (gestureState.dx > SWIPE_THRESHOLD) {
           callback();
 
           Animated.spring(pan, {
-            toValue: { x: windowWidth * 0.9 - 60, y: 0 },
+            toValue: { x: MAX_X, y: 0 },
             useNativeDriver: false,
           }).start();
         } else {
@@ -61,8 +64,8 @@ const SwipeButton = ({
           start={{ x: 0.99, y: 0.99 }}
           end={{ x: 1, y: 1 }}
           style={{
-            width: 50,
-            height: 50,
+            width: BUTTON_WIDTH,
+            height: BUTTON_WIDTH,
             borderRadius: 50,
             justifyContent: "center",
           }}
