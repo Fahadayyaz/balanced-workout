@@ -90,7 +90,7 @@ const HomeTabs = () => {
 const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Challenges"
+      initialRouteName="Splash1"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Splash1" component={Splash1} />
