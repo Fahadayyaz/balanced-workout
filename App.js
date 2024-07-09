@@ -25,6 +25,7 @@ import ActiveWorkout from "./screens/ActiveWorkout";
 import TabNav from "./components/TabNav";
 import PhysicalActivity from "./screens/PhysicalActivity";
 import ProfilePicture from "./screens/ProfilePicture";
+import Challenges from "./screens/Challenges";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -89,7 +90,7 @@ const HomeTabs = () => {
 const AppStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Splash1"
+      initialRouteName="Challenges"
       screenOptions={{ headerShown: false }}
     >
       <Stack.Screen name="Splash1" component={Splash1} />
@@ -113,6 +114,7 @@ const AppStack = () => {
       <Stack.Screen name="PhysicalActivity" component={PhysicalActivity} />
       <Stack.Screen name="Home" component={HomeTabs} />
       <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Challenges" component={Challenges} />
       <Stack.Screen name="ProfilePicture" component={ProfilePicture} />
     </Stack.Navigator>
   );

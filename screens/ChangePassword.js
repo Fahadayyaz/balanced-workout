@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  ImageBackground,
   StatusBar,
   Image,
   TextInput,
@@ -10,7 +9,8 @@ import {
   Pressable,
   Modal,
 } from "react-native";
-import { EvilIcons } from "@expo/vector-icons"; // Make sure you have expo-vector-icons installed
+import { EvilIcons } from "@expo/vector-icons";
+import { ScrollView } from "react-native-gesture-handler";
 
 const ChangePassword = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -26,98 +26,103 @@ const ChangePassword = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style="auto" />
-      <ImageBackground
-        source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
-        style={styles.container}
-      >
-        <Text style={styles.heading}>Change Password</Text>
-        <Text style={styles.description}>
-          Enter your information below or login with a other account
-        </Text>
+      <View style={{ position: "relative" }}>
         <Image
-          source={require("../assets/ForgotPasswordAssets/passwordChangedIcon.png")}
-          style={styles.changeIcon}
+          source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
+          style={{ width: "100%", height: "100%" }}
         />
-
-        <View style={styles.passwordSection}>
-          <Text style={{ color: "#fff", marginBottom: 10 }}>Password</Text>
-          <View style={{ position: "relative" }}>
-            <EvilIcons
-              name="lock"
-              size={32}
-              color="#fff"
-              style={{ position: "absolute", top: 13, left: 15 }}
-            />
-            <TextInput
-              style={styles.textInput}
-              placeholder="Enter New Password"
-              placeholderTextColor="#91929F"
-              secureTextEntry={true}
-            />
-          </View>
-        </View>
-
-        <View style={styles.passwordSection}>
-          <Text style={{ color: "#fff", marginBottom: 10 }}>
-            Confirm Password
-          </Text>
-          <View style={{ position: "relative" }}>
-            <EvilIcons
-              name="lock"
-              size={32}
-              color="#fff"
-              style={{ position: "absolute", top: 13, left: 15 }}
-            />
-            <TextInput
-              style={styles.textInput}
-              placeholder="Confirm New Password"
-              placeholderTextColor="#91929F"
-              secureTextEntry={true}
-            />
-          </View>
-        </View>
-
+        <StatusBar style="auto" />
+      </View>
+      <ScrollView
+        style={{ position: "absolute", right: 0, left: 0, top: 0, bottom: 0 }}
+      >
         <View>
-          <Pressable
-            style={({ pressed }) => [
-              styles.sendButton,
-              pressed && { backgroundColor: "#91929F" },
-            ]}
-            onPress={handleSavePress}
-          >
-            <Text style={styles.sendButtonText}>Save</Text>
-          </Pressable>
-        </View>
+          <Text style={styles.heading}>Change Password</Text>
+          <Text style={styles.description}>
+            Enter your information below or login with another account
+          </Text>
+          <Image
+            source={require("../assets/ForgotPasswordAssets/passwordChangedIcon.png")}
+            style={styles.lock}
+          />
 
-        <Modal
-          animationType="slide"
-          transparent={true}
-          visible={modalVisible}
-          onRequestClose={() => {
-            setModalVisible(!modalVisible);
-          }}
-        >
-          <View style={styles.modalOverlay}>
-            <View style={styles.modalContent}>
-              <Image
-                source={require("../assets/ForgotPasswordAssets/doneIcon.png")}
-                style={styles.doneIcon}
+          <View style={styles.passwordSection}>
+            <Text style={styles.passwordLabel}>Password</Text>
+            <View style={styles.inputContainer}>
+              <EvilIcons
+                name="lock"
+                size={32}
+                color="#fff"
+                style={styles.icon}
               />
-              <Text style={styles.modalHeading}>Changed Successfully</Text>
-              <Text style={styles.modalDescription}>
-                Your password has been changed successfully
-              </Text>
-              <Pressable
-                style={styles.modalButton}
-                onPress={handleBackToLoginPress}
-              >
-                <Text style={styles.modalButtonText}>Back to Login</Text>
-              </Pressable>
+              <TextInput
+                style={styles.textInput}
+                placeholder="Enter New Password"
+                placeholderTextColor="#91929F"
+                secureTextEntry={true}
+              />
             </View>
           </View>
-        </Modal>
-      </ImageBackground>
+
+          <View style={styles.passwordSection}>
+            <Text style={styles.passwordLabel}>Confirm Password</Text>
+            <View style={styles.inputContainer}>
+              <EvilIcons
+                name="lock"
+                size={32}
+                color="#fff"
+                style={styles.icon}
+              />
+              <TextInput
+                style={styles.textInput}
+                placeholder="Confirm New Password"
+                placeholderTextColor="#91929F"
+                secureTextEntry={true}
+              />
+            </View>
+          </View>
+
+          <View>
+            <Pressable
+              style={({ pressed }) => [
+                styles.sendButton,
+                pressed && { backgroundColor: "#91929F" },
+              ]}
+              onPress={handleSavePress}
+            >
+              <Text style={styles.sendButtonText}>Save</Text>
+            </Pressable>
+          </View>
+
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.modalOverlay}>
+              <View style={styles.modalContent}>
+                <Image
+                  source={require("../assets/ForgotPasswordAssets/doneIcon.png")}
+                  style={styles.doneIcon}
+                />
+                <Text style={styles.modalHeading}>Changed Successfully</Text>
+                <Text style={styles.modalDescription}>
+                  Your password has been changed successfully
+                </Text>
+                <Pressable
+                  style={styles.modalButton}
+                  onPress={handleBackToLoginPress}
+                >
+                  <Text style={styles.modalButtonText}>Back to Login</Text>
+                </Pressable>
+              </View>
+            </View>
+          </Modal>
+        </View>
+      </ScrollView>
     </View>
   );
 };
@@ -125,34 +130,41 @@ const ChangePassword = ({ navigation }) => {
 export default ChangePassword;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 30,
-    paddingVertical: 80,
-  },
   heading: {
     fontSize: 32,
     color: "white",
     textAlign: "center",
-    marginTop: "10%",
+    marginTop: "20%",
     fontWeight: "bold",
   },
   description: {
     color: "#D4D4D4",
     textAlign: "center",
-    width: 366,
-    height: 17,
+    width: 280,
     alignSelf: "center",
-    marginTop: 10,
+    marginTop: "1%",
   },
-  changeIcon: {
+  lock: {
     width: 180,
-    height: 180, // Add height to keep the image aspect ratio
+    height: 180,
     alignSelf: "center",
     marginTop: "20%",
   },
   passwordSection: {
-    marginTop: 20,
+    marginTop: "6%",
+    paddingHorizontal: "10%",
+  },
+  passwordLabel: {
+    color: "#fff",
+  },
+  inputContainer: {
+    justifyContent: "center",
+    top: "10%",
+  },
+  icon: {
+    position: "absolute",
+    top: 13,
+    left: 15,
   },
   textInput: {
     height: 50,
@@ -162,18 +174,19 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     color: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
   },
   sendButton: {
     alignSelf: "center",
     alignItems: "center",
+    paddingHorizontal: "36%",
     backgroundColor: "#BDFE30",
-    padding: 10,
-    width: "90%",
-    marginTop: "20%", // Adjust marginTop for consistency
+    padding: "3%",
+    marginTop: "25%",
     borderRadius: 30,
   },
   sendButtonText: {
-    color: "#000", // Ensure the text is visible on the button
+    color: "#000",
     fontSize: 16,
     fontWeight: "bold",
   },
@@ -185,9 +198,8 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "90%",
-    height: "30%",
     padding: 20,
-    backgroundColor: "#BDFE30", // Parrot green color
+    backgroundColor: "#BDFE30",
     borderRadius: 20,
     alignItems: "center",
   },
@@ -219,5 +231,6 @@ const styles = StyleSheet.create({
   },
   doneIcon: {
     width: 67,
+    height: 67,
   },
 });
