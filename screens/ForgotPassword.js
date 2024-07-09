@@ -9,6 +9,7 @@ import {
   Pressable,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
+import { ScrollView } from "react-native-gesture-handler";
 
 const ForgotPassword = ({ navigation }) => {
   return (
@@ -21,40 +22,47 @@ const ForgotPassword = ({ navigation }) => {
         />
         <StatusBar style="auto" />
       </View>
-      <View
+      <ScrollView
         style={{ position: "absolute", right: 0, left: 0, top: 0, bottom: 0 }}
       >
-        <Text style={styles.heading}>Forgot Password?</Text>
-        <Text style={styles.description}>
-          Enter your information below or login with another account
-        </Text>
-        <Image
-          source={require("../assets/ForgotPasswordAssets/lock.png")}
-          style={styles.lock}
-        />
-        <View style={styles.emailSection}>
-          <Text style={styles.emailLabel}>Email</Text>
-          <View style={styles.inputContainer}>
-            <AntDesign name="user" size={24} color="#fff" style={styles.icon} />
-            <TextInput
-              style={styles.input}
-              placeholder="helloBalanced@gmail.com"
-              placeholderTextColor="#91929F"
-            />
+        <View>
+          <Text style={styles.heading}>Forgot Password?</Text>
+          <Text style={styles.description}>
+            Enter your information below or login with another account
+          </Text>
+          <Image
+            source={require("../assets/ForgotPasswordAssets/lock.png")}
+            style={styles.lock}
+          />
+          <View style={styles.emailSection}>
+            <Text style={styles.emailLabel}>Email</Text>
+            <View style={styles.inputContainer}>
+              <AntDesign
+                name="user"
+                size={24}
+                color="#fff"
+                style={styles.icon}
+              />
+              <TextInput
+                style={styles.input}
+                placeholder="helloBalanced@gmail.com"
+                placeholderTextColor="#91929F"
+              />
+            </View>
+          </View>
+          <View>
+            <Pressable
+              style={({ pressed }) => [
+                styles.sendButton,
+                pressed && { backgroundColor: "#91929F" },
+              ]}
+              onPress={() => navigation.navigate("OTP")}
+            >
+              <Text style={styles.sendButtonText}>Send</Text>
+            </Pressable>
           </View>
         </View>
-        <View>
-          <Pressable
-            style={({ pressed }) => [
-              styles.sendButton,
-              pressed && { backgroundColor: "#91929F" },
-            ]}
-            onPress={() => navigation.navigate("OTP")}
-          >
-            <Text style={styles.sendButtonText}>Send</Text>
-          </Pressable>
-        </View>
-      </View>
+      </ScrollView>
     </View>
   );
 };
