@@ -35,7 +35,10 @@ const SignUp = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.contentContainer}
       >
-        <Image source={require("../assets/signInSignUpAssets/appIcon.png")} />
+        <Image
+          source={require("../assets/signInSignUpAssets/appIcon.png")}
+          style={styles.appLogo}
+        />
 
         <Text style={styles.heading}>Registration</Text>
 
@@ -84,7 +87,7 @@ const SignUp = () => {
               name="lock"
               size={38}
               color={passwordFocused ? "#fff" : "#91929F"}
-              style={{ position: "absolute", left: 5 }}
+              style={{ position: "absolute", left: 10 }}
             />
             <TextInput
               style={[styles.textInput, passwordFocused && styles.inputFocused]}
@@ -104,7 +107,7 @@ const SignUp = () => {
               name="lock"
               size={38}
               color={confirmPasswordFocused ? "#fff" : "#91929F"}
-              style={{ position: "absolute", left: 5 }}
+              style={{ position: "absolute", left: 10 }}
             />
             <TextInput
               style={[
@@ -184,23 +187,22 @@ const styles = StyleSheet.create({
     paddingVertical: 50,
   },
   appLogo: {
-    width: 80,
-    height: 80,
-    marginBottom: 20,
+    width: 62,
+    height: 65,
+    marginTop: "10%",
   },
   heading: {
     fontSize: 30,
     color: "#BDFE30",
     fontWeight: "bold",
-    marginBottom: 30,
+    marginTop: "5%",
   },
   inputContainer: {
     width: "100%",
-    marginBottom: 20,
+    marginTop: "10%",
   },
   label: {
     color: "#fff",
-    marginBottom: 10,
   },
   inputWrapper: {
     position: "relative",
