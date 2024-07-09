@@ -13,13 +13,13 @@ import { AntDesign } from "@expo/vector-icons";
 const ForgotPassword = ({ navigation }) => {
   return (
     <View style={{ flex: 1 }}>
-      <StatusBar style="auto" />
       <View style={{ position: "relative" }}>
         <Image
           source={require("../assets/ForgotPasswordAssets/forgotBg.png")}
           // style={styles.container}
           style={{ width: "100%", height: "100%" }}
         />
+        <StatusBar style="auto" />
       </View>
       <View
         style={{ position: "absolute", right: 0, left: 0, top: 0, bottom: 0 }}
