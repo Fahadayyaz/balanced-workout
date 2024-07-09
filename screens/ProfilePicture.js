@@ -1,11 +1,32 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useCallback } from "react";
-import { View, Text, StyleSheet, ImageBackground, Image } from "react-native";
+import React, { useState, useCallback, useEffect } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ImageBackground,
+  Image,
+  Alert,
+  Pressable,
+} from "react-native";
 import * as ImagePicker from "expo-image-picker";
-import BackNextButtons from "../components/BackNextButtons"; // Assuming this is the correct path to BackNextButtons
+import BackNextButtons from "../components/BackNextButtons";
 
-const ProfilePicture = () => {
+const UploadPicture = () => {
   const [image, setImage] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      const { status } =
+        await ImagePicker.requestMediaLibraryPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert(
+          "Permission Denied",
+          "Sorry, we need camera roll permissions to make this work!"
+        );
+      }
+    })();
+  }, []);
 
   const pickImage = useCallback(async () => {
     const result = await ImagePicker.launchImageLibraryAsync({
@@ -15,8 +36,8 @@ const ProfilePicture = () => {
       quality: 1,
     });
 
-    if (!result.cancelled) {
-      setImage(result.uri); // Ensure that the image URI is set correctly
+    if (!result.canceled) {
+      setImage(result.assets[0].uri);
     }
   }, []);
 
@@ -33,12 +54,14 @@ const ProfilePicture = () => {
         </Text>
         <View style={styles.uploadIconContainer}>
           {image ? (
-            <Image source={{ uri: image }} style={styles.uploadedImage} />
+            <Image source={{ uri: image }} style={styles.uploadIcon} />
           ) : (
-            <Image
-              source={require("../assets/Profile/UploadIcon.png")}
-              style={styles.uploadIcon}
-            />
+            <Pressable onPress={pickImage}>
+              <Image
+                source={require("../assets/Profile/UploadIcon.png")}
+                style={styles.uploadIcon}
+              />
+            </Pressable>
           )}
         </View>
         <BackNextButtons nextPath="SignIn" />
@@ -75,13 +98,14 @@ const styles = StyleSheet.create({
     width: "40%",
     height: undefined,
     aspectRatio: 1,
+    borderRadius: 100,
   },
   uploadedImage: {
     width: "40%",
     height: undefined,
     aspectRatio: 1,
-    borderRadius: 75,
+    borderRadius: 100,
   },
 });
 
-export default ProfilePicture;
+export default UploadPicture;
