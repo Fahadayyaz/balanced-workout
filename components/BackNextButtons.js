@@ -28,7 +28,7 @@ const BackNextButtons = ({ nextPath }) => {
           style={({ pressed }) => [
             styles.navButton,
             {
-              backgroundColor: pressed || isBackPressed ? "#BDFE30" : "#91929F",
+              backgroundColor: pressed || isBackPressed ? "#BDFE30" : "#3A3A3C",
             },
           ]}
         >
@@ -53,7 +53,7 @@ const BackNextButtons = ({ nextPath }) => {
           style={({ pressed }) => [
             styles.navButton,
             {
-              backgroundColor: pressed || isNextPressed ? "#BDFE30" : "#91929F",
+              backgroundColor: pressed || isNextPressed ? "#BDFE30" : "#3A3A3C",
             },
           ]}
         >

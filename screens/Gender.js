@@ -36,7 +36,7 @@ const Gender = () => {
               styles.genderButton,
               {
                 backgroundColor:
-                  pressed || gender === "male" ? "#BDFE30" : "#91929F",
+                  pressed || gender === "male" ? "#BDFE30" : "#3A3A3C",
               },
             ]}
           >
@@ -63,7 +63,7 @@ const Gender = () => {
               styles.genderButton,
               {
                 backgroundColor:
-                  pressed || gender === "female" ? "#BDFE30" : "#91929F",
+                  pressed || gender === "female" ? "#BDFE30" : "#3A3A3C",
               },
             ]}
           >
