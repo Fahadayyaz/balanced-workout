@@ -41,9 +41,11 @@ const SignIn = () => {
           <Text style={styles.loginHeading1}>Welcome to</Text>
           <Text style={styles.loginHeading2}>Balanced Workout</Text>
 
-          <View>
+          {/* Email & Password Container */}
+          <View style={styles.emailPasswordContainer}>
+            {/* Password Section */}
             <View style={styles.emailSection}>
-              <Text style={{ color: "#fff", marginBottom: 10 }}>Email</Text>
+              <Text style={{ color: "#fff" }}>Email</Text>
               <View style={{ position: "relative", justifyContent: "center" }}>
                 <AntDesign
                   name="user"
@@ -64,30 +66,31 @@ const SignIn = () => {
               </View>
             </View>
 
-            <Text style={{ color: "#fff", marginBottom: 10, marginTop: 10 }}>
-              Password
-            </Text>
-            <View style={{ position: "relative", justifyContent: "center" }}>
-              <AntDesign
-                name="lock"
-                size={24}
-                color={passwordFocused ? "#fff" : "#91929F"}
-                style={{ position: "absolute", paddingLeft: 10 }}
-              />
-              <TextInput
-                style={[
-                  styles.textInput,
-                  passwordFocused && {
-                    borderColor: "#BDFE30",
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  },
-                ]}
-                placeholder="Enter Password"
-                placeholderTextColor="#91929F"
-                secureTextEntry={true}
-                onFocus={() => setPasswordFocused(true)}
-                onBlur={() => setPasswordFocused(false)}
-              />
+            {/* Password Section */}
+            <View style={styles.passwordSection}>
+              <Text style={{ color: "#fff" }}>Password</Text>
+              <View style={{ position: "relative", justifyContent: "center" }}>
+                <AntDesign
+                  name="lock"
+                  size={24}
+                  color={passwordFocused ? "#fff" : "#91929F"}
+                  style={{ position: "absolute", paddingLeft: 10 }}
+                />
+                <TextInput
+                  style={[
+                    styles.textInput,
+                    passwordFocused && {
+                      borderColor: "#BDFE30",
+                      backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    },
+                  ]}
+                  placeholder="Enter Password"
+                  placeholderTextColor="#91929F"
+                  secureTextEntry={true}
+                  onFocus={() => setPasswordFocused(true)}
+                  onBlur={() => setPasswordFocused(false)}
+                />
+              </View>
             </View>
 
             <View
@@ -109,13 +112,15 @@ const SignIn = () => {
                   {isRemembered && <Text style={styles.tick}>✓</Text>}
                 </Pressable>
                 <Text
-                  style={{ color: "#91929F", marginTop: 7, paddingLeft: 3 }}
+                  style={{ color: "#91929F", marginTop: "3%", paddingLeft: 3 }}
                 >
                   Remember me
                 </Text>
               </View>
               <Pressable onPress={() => navigation.navigate("ForgotPassword")}>
-                <Text style={{ color: "#BDFE30" }}>Forgot Password?</Text>
+                <Text style={{ color: "#BDFE30", marginTop: "3%" }}>
+                  Forgot Password?
+                </Text>
               </Pressable>
             </View>
 
@@ -176,26 +181,40 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    paddingHorizontal: 30,
-    paddingVertical: 80,
+    paddingHorizontal: "10%",
+    paddingVertical: "20%",
+  },
+  appIcon: {
+    width: 62,
+    height: 65,
+    objectFit: "contain",
   },
   loginHeading1: {
     fontSize: 25,
     color: "white",
+    marginTop: "5%",
   },
   loginHeading2: {
     fontSize: 30,
     color: "#BDFE30",
     fontWeight: "bold",
   },
-  appIcon: {
-    width: 62,
-    height: 65,
-    objectFit: "contain",
-    marginBottom: 20,
+  emailPasswordContainer: {
+    marginTop: "10%",
   },
-  emailSection: {
-    marginTop: 20,
+  emailSection: {},
+  passwordSection: {
+    marginTop: "5%",
+  },
+  textInput: {
+    height: 50,
+    borderRadius: 30,
+    borderColor: "gray",
+    borderWidth: 1,
+    paddingLeft: 40,
+    color: "#fff",
+    backgroundColor: "rgba(255, 255, 255, 0.1)",
+    marginTop: "2%",
   },
   circle: {
     width: 30,
@@ -242,19 +261,11 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     backgroundColor: "#91929F",
   },
-  textInput: {
-    height: 50,
-    borderRadius: 30,
-    borderColor: "gray",
-    borderWidth: 1,
-    paddingLeft: 40,
-    color: "#fff",
-    backgroundColor: "rgba(255, 255, 255, 0.1)",
-  },
+
   socialButtonsContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: "10%",
   },
   appleButton: {
     marginHorizontal: 20,
