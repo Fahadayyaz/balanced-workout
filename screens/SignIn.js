@@ -7,6 +7,7 @@ import {
   View,
   Pressable,
   TextInput,
+  SafeAreaView,
 } from "react-native";
 import { AntDesign, EvilIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
@@ -24,7 +25,7 @@ const SignIn = () => {
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ImageBackground
         source={require("../assets/signInSignUpAssets/signInBackground.png")}
         style={styles.container}
@@ -172,7 +173,7 @@ const SignIn = () => {
           </View>
         </ScrollView>
       </ImageBackground>
-    </View>
+    </SafeAreaView>
   );
 };
 

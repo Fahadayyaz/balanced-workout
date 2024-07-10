@@ -112,13 +112,14 @@ const ChangePassword = ({ navigation }) => {
                 <Text style={styles.modalDescription}>
                   Your password has been changed successfully
                 </Text>
-                <Pressable
-                  style={styles.modalButton}
-                  onPress={handleBackToLoginPress}
-                >
-                  <Text style={styles.modalButtonText}>Back to Login</Text>
-                </Pressable>
               </View>
+
+              <Pressable
+                style={styles.modalButton}
+                onPress={handleBackToLoginPress}
+              >
+                <Text style={styles.modalButtonText}>Back to Login</Text>
+              </Pressable>
             </View>
           </Modal>
         </View>
@@ -198,6 +199,7 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "90%",
+    height: "30%",
     padding: 20,
     backgroundColor: "#BDFE30",
     borderRadius: 20,
@@ -209,25 +211,24 @@ const styles = StyleSheet.create({
     color: "#000",
     textAlign: "center",
     marginTop: 10,
-    marginBottom: 10,
   },
   modalDescription: {
+    marginTop: 10,
     fontSize: 12,
     color: "#000",
     textAlign: "center",
   },
   modalButton: {
     backgroundColor: "#fff",
-    paddingVertical: 10,
-    paddingHorizontal: 30,
     borderRadius: 40,
-    marginTop: "16%",
+    marginTop: "-9%",
   },
   modalButtonText: {
     color: "#000",
     fontSize: 16,
     fontWeight: "bold",
-    padding: 10,
+    paddingVertical: "5%",
+    paddingHorizontal: 30,
   },
   doneIcon: {
     width: 67,
