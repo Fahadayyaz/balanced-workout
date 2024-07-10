@@ -42,7 +42,7 @@ const SignUp = () => {
 
         <Text style={styles.heading}>Registration</Text>
 
-        <View style={styles.inputContainer}>
+        <View style={styles.nameContainer}>
           <Text style={styles.label}>Name</Text>
           <View style={styles.inputWrapper}>
             <AntDesign
@@ -61,7 +61,7 @@ const SignUp = () => {
           </View>
         </View>
 
-        <View style={styles.inputContainer}>
+        <View style={styles.emailContainer}>
           <Text style={styles.label}>Email</Text>
           <View style={styles.inputWrapper}>
             <Feather
@@ -80,7 +80,7 @@ const SignUp = () => {
           </View>
         </View>
 
-        <View style={styles.inputContainer}>
+        <View style={styles.passwordContainer}>
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputWrapper}>
             <EvilIcons
@@ -100,7 +100,7 @@ const SignUp = () => {
           </View>
         </View>
 
-        <View style={styles.inputContainer}>
+        <View style={styles.confirmPasswordContainer}>
           <Text style={styles.label}>Confirm Password</Text>
           <View style={styles.inputWrapper}>
             <EvilIcons
@@ -197,9 +197,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: "5%",
   },
-  inputContainer: {
+  nameContainer: {
     width: "100%",
-    marginTop: "10%",
+    marginTop: "5%",
+  },
+  emailContainer: {
+    width: "100%",
+    marginTop: "5%",
+  },
+  passwordContainer: {
+    width: "100%",
+    marginTop: "5%",
+  },
+  confirmPasswordContainer: {
+    width: "100%",
+    marginTop: "5%",
   },
   label: {
     color: "#fff",
@@ -207,6 +219,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     position: "relative",
     justifyContent: "center",
+    marginTop: "1%",
   },
   icon: {
     position: "absolute",
@@ -227,7 +240,7 @@ const styles = StyleSheet.create({
   rememberMeContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginTop: "5%",
   },
   circle: {
     width: 30,
@@ -251,8 +264,8 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 50,
     borderRadius: 30,
-    marginBottom: 30,
     alignItems: "center",
+    marginTop: "50%",
   },
   signUpButtonText: {
     fontSize: 16,
