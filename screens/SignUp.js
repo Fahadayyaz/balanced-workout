@@ -196,6 +196,7 @@ const styles = StyleSheet.create({
     color: "#BDFE30",
     fontWeight: "bold",
     marginTop: "5%",
+    marginBottom: "5%",
   },
   nameContainer: {
     width: "100%",
@@ -219,7 +220,7 @@ const styles = StyleSheet.create({
   inputWrapper: {
     position: "relative",
     justifyContent: "center",
-    marginTop: "1%",
+    marginTop: "2%",
   },
   icon: {
     position: "absolute",
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
   rememberMeContainer: {
     flexDirection: "row",
     alignItems: "center",
-    marginTop: "5%",
+    marginTop: "3%",
   },
   circle: {
     width: 30,
@@ -265,7 +266,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     borderRadius: 30,
     alignItems: "center",
-    marginTop: "50%",
+    marginTop: "10%",
   },
   signUpButtonText: {
     fontSize: 16,
@@ -275,7 +276,7 @@ const styles = StyleSheet.create({
   divider: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 20,
+    marginTop: "10%",
   },
   line: {
     flex: 1,
@@ -290,7 +291,7 @@ const styles = StyleSheet.create({
   socialButtonsContainer: {
     flexDirection: "row",
     justifyContent: "center",
-    marginBottom: 20,
+    marginTop: "10%",
   },
   socialButton: {
     marginHorizontal: 20,
@@ -318,7 +319,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    marginTop: 20,
+    marginTop: "10%",
   },
   signInText: {
     color: "#fff",
