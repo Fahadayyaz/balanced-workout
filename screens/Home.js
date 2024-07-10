@@ -58,19 +58,19 @@ const Home = () => {
             </View>
             <View style={styles.progressCircle}>
               <CircularProgress
-                radius={50}
+                radius={45}
                 value={value}
                 textColor="#222"
                 fontSize={16}
                 valueSuffix={"%"}
                 inActiveStrokeColor={"#E2FFF5"}
                 inActiveStrokeOpacity={0.5}
-                inActiveStrokeWidth={30}
+                inActiveStrokeWidth={35}
                 activeStrokeColor={"#BDFE30"}
-                activeStrokeWidth={30}
-                duration={1000}
+                activeStrokeWidth={35}
+                duration={500}
                 showProgressValue={false}
-                onAnimationComplete={() => setValue(50)}
+                onAnimationComplete={() => setValue(45)}
               />
             </View>
           </View>
@@ -284,8 +284,8 @@ const styles = StyleSheet.create({
   },
   cardsText: {
     color: "#fff",
-    marginLeft: "23%",
-    marginTop: 15,
+    textAlign: "center",
+    marginTop: "8%",
   },
   createFeedButton: {
     width: "100%",
