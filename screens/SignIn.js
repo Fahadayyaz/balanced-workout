@@ -113,7 +113,11 @@ const SignIn = () => {
                   {isRemembered && <Text style={styles.tick}>✓</Text>}
                 </Pressable>
                 <Text
-                  style={{ color: "#91929F", marginTop: "3%", paddingLeft: 3 }}
+                  style={{
+                    color: "#91929F",
+                    marginTop: "3%",
+                    paddingLeft: "3%",
+                  }}
                 >
                   Remember me
                 </Text>
@@ -226,11 +230,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   circleClicked: {
-    backgroundColor: "#303030",
+    backgroundColor: "##BDFE30",
   },
   tick: {
     fontSize: 18,
-    color: "#fff",
+    color: "black",
   },
   loginButton: {
     alignItems: "center",

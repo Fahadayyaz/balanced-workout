@@ -70,7 +70,7 @@ const Home = () => {
                 activeStrokeWidth={35}
                 duration={500}
                 showProgressValue={false}
-                onAnimationComplete={() => setValue(45)}
+                onAnimationComplete={() => setValue(50)}
               />
             </View>
           </View>
