@@ -83,11 +83,13 @@ const SignUp = () => {
         <View style={styles.passwordContainer}>
           <Text style={styles.label}>Password</Text>
           <View style={styles.inputWrapper}>
-            <EvilIcons
-              name="lock"
-              size={38}
-              color={passwordFocused ? "#fff" : "#91929F"}
-              style={{ position: "absolute", left: 10 }}
+            <Image
+              source={require("../assets/signInSignUpAssets/lock.png")}
+              style={{
+                position: "absolute",
+                left: 18,
+                tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+              }}
             />
             <TextInput
               style={[styles.textInput, passwordFocused && styles.inputFocused]}
@@ -103,11 +105,13 @@ const SignUp = () => {
         <View style={styles.confirmPasswordContainer}>
           <Text style={styles.label}>Confirm Password</Text>
           <View style={styles.inputWrapper}>
-            <EvilIcons
-              name="lock"
-              size={38}
-              color={confirmPasswordFocused ? "#fff" : "#91929F"}
-              style={{ position: "absolute", left: 10 }}
+            <Image
+              source={require("../assets/signInSignUpAssets/lock.png")}
+              style={{
+                position: "absolute",
+                left: 18,
+                tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+              }}
             />
             <TextInput
               style={[
@@ -126,7 +130,11 @@ const SignUp = () => {
         <View style={styles.rememberMeContainer}>
           <Pressable
             onPress={toggleRemember}
-            style={[styles.circle, isRemembered && styles.circleChecked]}
+            style={({ pressed }) => [
+              styles.circle,
+              isRemembered && styles.circleClicked,
+              pressed && { backgroundColor: "#BDFE30" },
+            ]}
           >
             {isRemembered && <Text style={styles.tick}>✓</Text>}
           </Pressable>
@@ -251,10 +259,12 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  circleChecked: {},
+  circleChecked: {
+    backgroundColor: "##BDFE30",
+  },
   tick: {
     fontSize: 18,
-    color: "#fff",
+    color: "black",
   },
   rememberMeText: {
     color: "#91929F",
