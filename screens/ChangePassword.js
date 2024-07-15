@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   Text,
@@ -8,12 +8,35 @@ import {
   StyleSheet,
   Pressable,
   Modal,
+  Animated,
 } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 import { ScrollView } from "react-native-gesture-handler";
 
 const ChangePassword = ({ navigation }) => {
   const [modalVisible, setModalVisible] = useState(false);
+  const scaleAnim = useRef(new Animated.Value(1)).current;
+
+  useEffect(() => {
+    if (modalVisible) {
+      Animated.loop(
+        Animated.sequence([
+          Animated.timing(scaleAnim, {
+            toValue: 1.5,
+            duration: 1000,
+            useNativeDriver: true,
+          }),
+          Animated.timing(scaleAnim, {
+            toValue: 1,
+            duration: 1000,
+            useNativeDriver: true,
+          }),
+        ])
+      ).start();
+    } else {
+      scaleAnim.setValue(1);
+    }
+  }, [modalVisible]);
 
   const handleSavePress = () => {
     setModalVisible(true);
@@ -104,6 +127,9 @@ const ChangePassword = ({ navigation }) => {
           >
             <View style={styles.modalOverlay}>
               <View style={styles.modalContent}>
+                <Animated.View
+                  style={[styles.circle, { transform: [{ scale: scaleAnim }] }]}
+                />
                 <Image
                   source={require("../assets/ForgotPasswordAssets/doneIcon.png")}
                   style={styles.doneIcon}
@@ -231,7 +257,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
   },
   doneIcon: {
-    width: 67,
-    height: 67,
+    width: 56,
+    height: 56,
+    position: "absolute",
+    top: 27,
+  },
+  circle: {
+    alignItems: "center",
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    backgroundColor: "#92C22B",
+    marginBottom: 20,
+    marginTop: 10,
   },
 });
