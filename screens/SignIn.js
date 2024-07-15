@@ -79,7 +79,7 @@ const SignIn = () => {
                   position: "absolute",
                   left: 18,
                   top: 22,
-                  tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+                  tintColor: passwordFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
                 }}
               />
               <TextInput

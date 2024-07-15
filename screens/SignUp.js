@@ -88,7 +88,7 @@ const SignUp = () => {
               style={{
                 position: "absolute",
                 left: 18,
-                tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+                tintColor: passwordFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
               }}
             />
             <TextInput
@@ -110,7 +110,7 @@ const SignUp = () => {
               style={{
                 position: "absolute",
                 left: 18,
-                tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+                tintColor: confirmPasswordFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
               }}
             />
             <TextInput
@@ -221,6 +221,9 @@ const styles = StyleSheet.create({
   confirmPasswordContainer: {
     width: "100%",
     marginTop: "5%",
+  },
+  circleClicked: {
+    backgroundColor: "##BDFE30",
   },
   label: {
     color: "#fff",
