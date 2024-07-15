@@ -186,6 +186,7 @@ const Home = () => {
               <Text style={{ color: "#fff", fontSize: 18, marginTop: 10 }}>
                 Simply Chest Workout
               </Text>
+              {/*  start now buttom */}
               <Pressable style={styles.startNowButton}>
                 <Text style={{ fontSize: 14, alignSelf: "center" }}>
                   Start Now
