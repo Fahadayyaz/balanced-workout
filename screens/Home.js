@@ -9,6 +9,7 @@ import {
   ImageBackground,
   ScrollView,
   Dimensions,
+  TextInput,
 } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
 
@@ -16,6 +17,12 @@ const { width } = Dimensions.get("window");
 
 const Home = () => {
   const [value, setValue] = useState(0);
+  const [isSearchActive, setIsSearchActive] = useState(false);
+  const [searchText, setSearchText] = useState("");
+
+  const handleSearchIconPress = () => {
+    setIsSearchActive(!isSearchActive);
+  };
 
   return (
     <View style={styles.container}>
@@ -32,12 +39,15 @@ const Home = () => {
             Hi,<Text style={styles.text2}> Kaile</Text>
           </Text>
         </View>
-        <View style={styles.profileSearchBox}>
+        <Pressable
+          style={styles.profileSearchBox}
+          onPress={handleSearchIconPress}
+        >
           <Image
             source={require("../assets/homeAssets/searchIcon.png")}
             style={{ width: 45, height: 45 }}
           />
-        </View>
+        </Pressable>
         <View style={styles.profileNotificationBox}>
           <Image
             source={require("../assets/homeAssets/notificationIcon.png")}
@@ -45,6 +55,17 @@ const Home = () => {
           />
         </View>
       </View>
+      {isSearchActive && (
+        <View style={styles.searchBox}>
+          <TextInput
+            style={styles.searchInput}
+            placeholder="Type to Search"
+            placeholderTextColor="#91929F"
+            value={searchText}
+            onChangeText={setSearchText}
+          />
+        </View>
+      )}
       <ScrollView style={styles.scrollViewContent}>
         <View style={styles.content}>
           <View style={styles.activityWrap}>
@@ -224,6 +245,17 @@ const styles = StyleSheet.create({
     color: "#BDFE30",
     fontWeight: "bold",
     fontSize: 24,
+  },
+  searchBox: {
+    backgroundColor: "#404040",
+    borderRadius: 100,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    margin: 20,
+  },
+  searchInput: {
+    color: "#fff",
+    fontSize: 16,
   },
   scrollViewContent: {
     flex: 1,
