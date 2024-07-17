@@ -40,7 +40,7 @@ const SwipeButton = ({ callback = () => console.log("Swipe callback") }) => {
   // Dynamically change text color based on pan.x
   const textColor = pan.x.interpolate({
     inputRange: [0, MAX_X],
-    outputRange: ["red", "green"],
+    outputRange: ["black", "green"],
   });
 
   return (
