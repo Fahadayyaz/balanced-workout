@@ -45,11 +45,15 @@ const SignUp = () => {
         <View style={styles.nameContainer}>
           <Text style={styles.label}>Name</Text>
           <View style={styles.inputWrapper}>
-            <AntDesign
-              name="user"
-              size={24}
-              color={nameFocused ? "#fff" : "#91929F"}
-              style={styles.icon}
+            <Image
+              source={require("../assets/signInSignUpAssets/profileIcon.png")}
+              style={{
+                position: "absolute",
+                left: 18,
+                width: 13.33,
+                height: 16,
+                tintColor: nameFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+              }}
             />
             <TextInput
               style={[styles.textInput, nameFocused && styles.inputFocused]}
@@ -64,11 +68,15 @@ const SignUp = () => {
         <View style={styles.emailContainer}>
           <Text style={styles.label}>Email</Text>
           <View style={styles.inputWrapper}>
-            <Feather
-              name="mail"
-              size={24}
-              color={emailFocused ? "#fff" : "#91929F"}
-              style={styles.icon}
+            <Image
+              source={require("../assets/signInSignUpAssets/mailIcon.png")}
+              style={{
+                position: "absolute",
+                left: 18,
+                width: 13.33,
+                height: 16,
+                tintColor: emailFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
+              }}
             />
             <TextInput
               style={[styles.textInput, emailFocused && styles.inputFocused]}
@@ -88,6 +96,8 @@ const SignUp = () => {
               style={{
                 position: "absolute",
                 left: 18,
+                width: 13.33,
+                height: 16,
                 tintColor: passwordFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
               }}
             />
@@ -110,6 +120,8 @@ const SignUp = () => {
               style={{
                 position: "absolute",
                 left: 18,
+                width: 13.33,
+                height: 16,
                 tintColor: confirmPasswordFocused ? "#fff" : "#91929F", // Use tintColor to change the color of the image
               }}
             />
