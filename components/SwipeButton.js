@@ -1,4 +1,4 @@
-import { Animated, Dimensions, PanResponder, Text } from "react-native";
+import { Animated, Dimensions, PanResponder, Text, View } from "react-native";
 import { memo, useRef } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -53,10 +53,23 @@ const SwipeButton = ({
         borderRadius: 50,
         borderWidth: 1,
         padding: 5,
+        justifyContent: "center",
       }}
     >
+      <Text
+        style={{
+          position: "absolute",
+          color: "black",
+          fontSize: 16,
+          alignSelf: "center",
+        }}
+      >
+        Slide Left to Right
+      </Text>
       <Animated.View
-        style={[{ transform: [{ translateX: pan.x }] }]}
+        style={[
+          { position: "absolute", left: 5, transform: [{ translateX: pan.x }] },
+        ]}
         {...panResponder.panHandlers}
       >
         <LinearGradient
@@ -73,7 +86,7 @@ const SwipeButton = ({
           <AntDesign
             name="arrowright"
             size={24}
-            color="black"
+            color="lightgreen"
             style={{ alignSelf: "center" }}
           />
         </LinearGradient>
