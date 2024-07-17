@@ -1,5 +1,5 @@
+import React, { useRef } from "react";
 import { Animated, Dimensions, PanResponder, Text, View } from "react-native";
-import { memo, useRef } from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -8,11 +8,7 @@ const BUTTON_WIDTH = 50;
 const SWIPE_THRESHOLD = 100;
 const MAX_X = windowWidth * 0.9 - BUTTON_WIDTH - 10; // Adjusted for padding and margins
 
-const SwipeButton = ({
-  callback = () => {
-    console.log("Swipe callback");
-  },
-}) => {
+const SwipeButton = ({ callback = () => console.log("Swipe callback") }) => {
   const pan = useRef(new Animated.ValueXY()).current;
 
   const panResponder = useRef(
@@ -41,6 +37,12 @@ const SwipeButton = ({
     })
   ).current;
 
+  // Dynamically change text color based on pan.x
+  const textColor = pan.x.interpolate({
+    inputRange: [0, MAX_X],
+    outputRange: ["red", "green"],
+  });
+
   return (
     <LinearGradient
       colors={["transparent", "#ffffffa0"]}
@@ -56,19 +58,23 @@ const SwipeButton = ({
         justifyContent: "center",
       }}
     >
-      <Text
+      <Animated.Text
         style={{
           position: "absolute",
-          color: "black",
+          color: textColor, // Apply dynamic color here
           fontSize: 16,
           alignSelf: "center",
         }}
       >
         Slide Left to Right
-      </Text>
+      </Animated.Text>
       <Animated.View
         style={[
-          { position: "absolute", left: 5, transform: [{ translateX: pan.x }] },
+          {
+            position: "absolute",
+            left: 5,
+            transform: [{ translateX: pan.x }],
+          },
         ]}
         {...panResponder.panHandlers}
       >
@@ -86,7 +92,7 @@ const SwipeButton = ({
           <AntDesign
             name="arrowright"
             size={24}
-            color="lightgreen"
+            color="green"
             style={{ alignSelf: "center" }}
           />
         </LinearGradient>
@@ -95,4 +101,4 @@ const SwipeButton = ({
   );
 };
 
-export default memo(SwipeButton);
+export default React.memo(SwipeButton);
