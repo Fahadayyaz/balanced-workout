@@ -194,6 +194,9 @@ const Home = () => {
               </Pressable>
             </View>
           </ImageBackground>
+          <ImageBackground style={styles.imageBackground}>
+            <View style={{ marginLeft: 23, marginTop: 63 }}></View>
+          </ImageBackground>
         </View>
       </ScrollView>
     </View>
